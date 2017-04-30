@@ -136,3 +136,14 @@ function pan_centre()
 }
 
 
+/* ------------------------------------------------------------------------------
+ * A button to pan to a map legend.  This data needs to be loaded manually.
+ * See https://github.com/SomeoneElseOSM/SomeoneElse-style-legend
+ * ------------------------------------------------------------------------------ */
+function pan_legend()
+{
+    map.setZoom( 15 );
+    map.panTo([ -24.98968, 135.02356 ]);
+}
+
+

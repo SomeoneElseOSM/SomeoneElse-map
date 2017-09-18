@@ -9,6 +9,7 @@ function initmap()
 {
     var hetznerUrl='//map.atownsend.org.uk/hot/{z}/{x}/{y}.png';
     var osmUrl='//a.tile.openstreetmap.org/{z}/{x}/{y}.png';
+    var deUrl='//a.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png';
     var os201604Url='//{s}.os.openstreetmap.org/layer/gb_os_sv_2016_04/{z}/{x}/{y}.png';
     var wikiUrl='//maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png';
     var gps2Url='//gps-b.tile.openstreetmap.org/lines/{z}/{x}/{y}.png';
@@ -31,6 +32,7 @@ function initmap()
  * ------------------------------------------------------------------------------ */
     var hetznerLayer = new L.TileLayer( hetznerUrl, {minZoom: 0, maxZoom: 25, maxNativeZoom: 24, attribution: osmAttrib });
     var osmLayer = new L.TileLayer( osmUrl, {minZoom: 0, maxZoom: 20, maxNativeZoom: 19, attribution: osmAttrib });
+    var deLayer = new L.TileLayer( deUrl, {minZoom: 0, maxZoom: 20, maxNativeZoom: 19, attribution: osmAttrib });
     var os201604Layer = new L.TileLayer( os201604Url, {minZoom: 0, maxZoom: 19, attribution: osmAttrib });
     var wikiLayer = new L.TileLayer( wikiUrl, {minZoom: 0, maxZoom: 19, maxNativeZoom: 18, attribution: osmAttrib });
     var gps2Layer = new L.TileLayer( gps2Url, {minZoom: 0, maxZoom: 20, attribution: osmAttrib });
@@ -55,6 +57,7 @@ function initmap()
     var baseMaps = {
 	"Default": hetznerLayer,
 	"OSM": osmLayer,
+	"DE": deLayer,
 	"OS 201604": os201604Layer,
 	"Wikimedia": wikiLayer
     };

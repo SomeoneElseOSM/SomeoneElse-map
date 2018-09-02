@@ -157,4 +157,12 @@ function show_changelog()
     window.open ( 'changelog.html','_self',false )
 }
 
+/* -------------------------------------------------------------------------
+ * A button to pan to display an about screen.
+ * ------------------------------------------------------------------------- */
+function show_about()
+{
+    window.open ( 'about.html','_self',false )
+}
+
 

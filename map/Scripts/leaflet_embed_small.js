@@ -15,7 +15,8 @@ function initmap()
     var gps2Url='//gps-b.tile.openstreetmap.org/lines/{z}/{x}/{y}.png';
     var mapillaryUrl='//d6a1v2w10ny40.cloudfront.net/v0.1/{z}/{x}/{y}.png';
     var osdiffUrl='//{s}.os.openstreetmap.org/layer/gb_os_sv_diff_2015_11_2016_04/{z}/{x}/{y}.png';
-    
+    var townlandUrl='http://tile.openstreetmap.ie/townland/{z}/{x}/{y}.png';
+
     var osmAttrib='Map data &copy; OpenStreetMap contributors';
 
 /* ------------------------------------------------------------------------------
@@ -38,6 +39,7 @@ function initmap()
     var gps2Layer = new L.TileLayer( gps2Url, {minZoom: 0, maxZoom: 20, attribution: osmAttrib });
     var mapillaryLayer = new L.TileLayer( mapillaryUrl, {minZoom: 0, maxZoom: 20, attribution: osmAttrib });
     var osdiffLayer = new L.TileLayer( osdiffUrl, {minZoom: 0, maxZoom: 19, attribution: osmAttrib });
+    var townlandLayer = new L.TileLayer( townlandUrl, {minZoom: 0, maxZoom: 19, attribution: osmAttrib });
 
     // set up the map
 
@@ -65,7 +67,8 @@ function initmap()
     var overlayMaps = {
         "GPS": gps2Layer,
         "Mapillary": mapillaryLayer,
-	"OS Diff": osdiffLayer
+	"OS Diff": osdiffLayer,
+	"Irish Townlands": townlandLayer
     };
 
 /* ------------------------------------------------------------------------------

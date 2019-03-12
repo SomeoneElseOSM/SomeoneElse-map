@@ -8,15 +8,15 @@ var some_var = 0;
 function initmap()
 {
     var hetznerUrl='//map.atownsend.org.uk/hot/{z}/{x}/{y}.png';
+    var boundaryUrl='//map.atownsend.org.uk/hot2/{z}/{x}/{y}.png';
     var osmUrl='//a.tile.openstreetmap.org/{z}/{x}/{y}.png';
     var deUrl='//a.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png';
     var os201604Url='//{s}.os.openstreetmap.org/layer/gb_os_sv_2016_04/{z}/{x}/{y}.png';
     var wikiUrl='//maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png';
     var gps2Url='//gps-b.tile.openstreetmap.org/lines/{z}/{x}/{y}.png';
     var mapillaryUrl='//d6a1v2w10ny40.cloudfront.net/v0.1/{z}/{x}/{y}.png';
-    var osdiffUrl='//{s}.os.openstreetmap.org/layer/gb_os_sv_diff_2015_11_2016_04/{z}/{x}/{y}.png';
     var townlandUrl='http://tile.openstreetmap.ie/townland/{z}/{x}/{y}.png';
-
+    
     var osmAttrib='Map data &copy; OpenStreetMap contributors';
 
 /* ------------------------------------------------------------------------------
@@ -32,13 +32,13 @@ function initmap()
  * another without just getting a grey background.
  * ------------------------------------------------------------------------------ */
     var hetznerLayer = new L.TileLayer( hetznerUrl, {minZoom: 0, maxZoom: 25, maxNativeZoom: 24, attribution: osmAttrib });
+    var boundaryLayer = new L.TileLayer( boundaryUrl, {minZoom: 0, maxZoom: 25, maxNativeZoom: 24, attribution: osmAttrib });
     var osmLayer = new L.TileLayer( osmUrl, {minZoom: 0, maxZoom: 20, maxNativeZoom: 19, attribution: osmAttrib });
     var deLayer = new L.TileLayer( deUrl, {minZoom: 0, maxZoom: 20, maxNativeZoom: 19, attribution: osmAttrib });
     var os201604Layer = new L.TileLayer( os201604Url, {minZoom: 0, maxZoom: 19, attribution: osmAttrib });
     var wikiLayer = new L.TileLayer( wikiUrl, {minZoom: 0, maxZoom: 19, maxNativeZoom: 18, attribution: osmAttrib });
     var gps2Layer = new L.TileLayer( gps2Url, {minZoom: 0, maxZoom: 20, attribution: osmAttrib });
     var mapillaryLayer = new L.TileLayer( mapillaryUrl, {minZoom: 0, maxZoom: 20, attribution: osmAttrib });
-    var osdiffLayer = new L.TileLayer( osdiffUrl, {minZoom: 0, maxZoom: 19, attribution: osmAttrib });
     var townlandLayer = new L.TileLayer( townlandUrl, {minZoom: 0, maxZoom: 19, attribution: osmAttrib });
 
     // set up the map
@@ -65,9 +65,9 @@ function initmap()
     };
 
     var overlayMaps = {
+        "Boundaries": boundaryLayer,
         "GPS": gps2Layer,
         "Mapillary": mapillaryLayer,
-	"OS Diff": osdiffLayer,
 	"Irish Townlands": townlandLayer
     };
 

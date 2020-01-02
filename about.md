@@ -18,7 +18,7 @@ This data that this map uses is all added by contributors to the [OpenStreetMap]
 
 ## Is this map up to date?
 
-Apart from the rough country boundaries and places shown at very low zoom levels, the data that this map uses is updated from OpenStreetMap data every few minutes.  Depending on what you're looking at, changes will either appear very nearly immediately (when you're zoomed in) or in a few days (zoomed out).  Nothing should be more than about 4 days old, though you may see cached tiles (either in your browser or from the server, while a new tile is being created).
+Apart from the places shown at very low zoom levels, the data that this map uses is updated from OpenStreetMap data every few minutes.  Depending on what you're looking at, changes will either appear very nearly immediately (when you're zoomed in) or in a few days (zoomed out).  Nothing should be more than about 4 days old, though you may see cached tiles (either in your browser or from the server, while a new tile is being created).
 
 ## Something's wrong, how do I fix it?
 

@@ -28,3 +28,6 @@ You can update the data that this map uses by going to [https://www.openstreetma
 
 You can, but only by creating your version of the map using your own map tiles.  The [changelog](https://map.atownsend.org.uk/maps/map/changelog.html) contains some links at the top to the various parts of the map style in github - create an issue there if you've got further questions.
 
+## If I use these map tiles, what will people know about me?
+
+[I](https://www.openstreetmap.org/user/SomeoneElse) am the only person that I've set up to have access to the server.  If you request tiles then the normal Linux logs will record the fact (Apache's "access" log stores which IP address asked for a tile when, and the "syslog" stires details about new tiles being rendered).  The logs store data for about a week and then wrap around.  I can't comment on who might be watching traffic between you and the server (in Finland).  If you're particularly worried about people NOT knowing that you're requesting certain map tiles I recommend that you set up your own server and serve tiles from there instead.

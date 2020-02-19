@@ -2,6 +2,8 @@
 
 This map is created from [OpenStreetMap](https://www.openstreetmap.org/about) data.  It's designed to show information that's specifically useful to rural pedestrians - things like public footpaths and bridleways, and which roads you can safely walk along because there's a roadside pavement or verge.  There's a map legend [here](https://map.atownsend.org.uk/maps/map/map.html#zoom=14&lat=-24.99839&lon=135.04956), but it's quite large, so you'll need to scroll around to see it all, and also zoom in to see things that are only visible when you are zoomed in.  Changes that have been made to what is shown on the map can be seen [here](https://map.atownsend.org.uk/maps/map/changelog.html).
 
+It uses a Javascript library called [Leaflet](http://leafletjs.com/), which is really well documented and simple to use, and makes it easy to create map web sites such as this one.
+
 ## Can I use this map?
 
 Yes, you're welcome to link to it.  If you want to link to a specific area zoom in to wherever you are interested in and click "permalink" in the top right-hand corner, and just copy the contents of the URL bar.

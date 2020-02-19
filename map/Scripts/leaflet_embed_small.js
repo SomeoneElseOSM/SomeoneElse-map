@@ -54,6 +54,7 @@ function initmap()
 	layers: [ hetznerLayer ]
     });
 
+    map.attributionControl.setPrefix(false);
     map.addControl( new L.Control.Permalink({ text: 'Permalink', layers: layersControl }) );
 
     var baseMaps = {

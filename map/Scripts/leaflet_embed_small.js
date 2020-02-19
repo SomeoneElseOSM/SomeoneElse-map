@@ -17,7 +17,7 @@ function initmap()
     var mapillaryUrl='//d6a1v2w10ny40.cloudfront.net/v0.1/{z}/{x}/{y}.png';
     var townlandUrl='http://tile.openstreetmap.ie/townland/{z}/{x}/{y}.png';
     
-    var osmAttrib='Map data &copy; OpenStreetMap contributors';
+    var osmAttrib='Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>';
 
 /* ------------------------------------------------------------------------------
  * A note about layer min and max zoom levels:

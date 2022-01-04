@@ -12,11 +12,12 @@ function initmap()
     var osmUrl='//a.tile.openstreetmap.org/{z}/{x}/{y}.png';
     var deUrl='//a.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png';
     var os201604Url='//{s}.os.openstreetmap.org/layer/gb_os_sv_2016_04/{z}/{x}/{y}.png';
+    var oslocalUrl='//{s}.os.openstreetmap.org/layer/gb_os_om_local_2020_04/{z}/{x}/{y}.png';
     var wikiUrl='//maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png';
     var gps2Url='//gps-b.tile.openstreetmap.org/lines/{z}/{x}/{y}.png';
-    var mapillaryUrl='//d6a1v2w10ny40.cloudfront.net/v0.1/{z}/{x}/{y}.png';
-    var townlandUrl='http://tile.openstreetmap.ie/townland/{z}/{x}/{y}.png';
-    
+    var floodedUrl='//map.atownsend.org.uk/hot4/{z}/{x}/{y}.png';
+    var LA_ProwUrl='https://osm.cycle.travel/rights_of_way/{z}/{x}/{y}.png';
+
     var osmAttrib='Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>';
 
 /* ------------------------------------------------------------------------------
@@ -36,10 +37,11 @@ function initmap()
     var osmLayer = new L.TileLayer( osmUrl, {minZoom: 0, maxZoom: 20, maxNativeZoom: 19, attribution: osmAttrib });
     var deLayer = new L.TileLayer( deUrl, {minZoom: 0, maxZoom: 20, maxNativeZoom: 19, attribution: osmAttrib });
     var os201604Layer = new L.TileLayer( os201604Url, {minZoom: 0, maxZoom: 19, attribution: osmAttrib });
+    var oslocalLayer = new L.TileLayer( oslocalUrl, {minZoom: 0, maxZoom: 19, attribution: osmAttrib });
     var wikiLayer = new L.TileLayer( wikiUrl, {minZoom: 0, maxZoom: 19, maxNativeZoom: 18, attribution: osmAttrib });
     var gps2Layer = new L.TileLayer( gps2Url, {minZoom: 0, maxZoom: 20, attribution: osmAttrib });
-    var mapillaryLayer = new L.TileLayer( mapillaryUrl, {minZoom: 0, maxZoom: 20, attribution: osmAttrib });
-    var townlandLayer = new L.TileLayer( townlandUrl, {minZoom: 0, maxZoom: 19, attribution: osmAttrib });
+    var floodedLayer = new L.TileLayer( floodedUrl, {minZoom: 0, maxZoom: 25, maxNativeZoom: 24, attribution: osmAttrib });
+    var LA_ProwLayer = new L.TileLayer( LA_ProwUrl, {minZoom: 0, maxZoom: 25, maxNativeZoom: 24, attribution: osmAttrib });
 
     // set up the map
 
@@ -62,14 +64,15 @@ function initmap()
 	"OSM": osmLayer,
 	"DE": deLayer,
 	"OS 201604": os201604Layer,
+	"OS OM Local": oslocalLayer,
 	"Wikimedia": wikiLayer
     };
 
     var overlayMaps = {
         "Boundaries": boundaryLayer,
         "GPS": gps2Layer,
-        "Mapillary": mapillaryLayer,
-	"Irish Townlands": townlandLayer
+        "Flooding": floodedLayer,
+        "LA PRoW": LA_ProwLayer
     };
 
 /* ------------------------------------------------------------------------------

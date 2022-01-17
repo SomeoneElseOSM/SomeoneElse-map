@@ -13,7 +13,6 @@ function initmap()
     var deUrl='//a.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png';
     var os201604Url='//{s}.os.openstreetmap.org/layer/gb_os_sv_2016_04/{z}/{x}/{y}.png';
     var oslocalUrl='//{s}.os.openstreetmap.org/layer/gb_os_om_local_2020_04/{z}/{x}/{y}.png';
-    var wikiUrl='//maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png';
     var gps2Url='//gps-b.tile.openstreetmap.org/lines/{z}/{x}/{y}.png';
     var floodedUrl='//map.atownsend.org.uk/hot4/{z}/{x}/{y}.png';
     var LA_ProwUrl='https://osm.cycle.travel/rights_of_way/{z}/{x}/{y}.png';
@@ -21,7 +20,7 @@ function initmap()
     var osmAttrib='Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>';
     var osAttrib='Map data &copy; <a href="https://www.ordnancesurvey.co.uk/business-government/products/open-map-local">Ordnance Survey</a> under <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">OGL</a>';
     var eaAttrib='current flooding &copy; <a href="https://check-for-flooding.service.gov.uk/find-location">Environment Agency</a> under <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">OGL</a>';
-    var laAttrib='PRoW overlay &copy; local authorities under OGL & rowmaps.com';
+    var laAttrib='PRoW overlay &copy; local authorities under <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">OGL</a> & <a href="https://rowmaps.com">rowmaps.com</a>';
 
 /* ------------------------------------------------------------------------------
  * A note about layer min and max zoom levels:
@@ -41,7 +40,6 @@ function initmap()
     var deLayer = new L.TileLayer( deUrl, {minZoom: 0, maxZoom: 20, maxNativeZoom: 19, attribution: osmAttrib });
     var os201604Layer = new L.TileLayer( os201604Url, {minZoom: 0, maxZoom: 19, attribution: osAttrib });
     var oslocalLayer = new L.TileLayer( oslocalUrl, {minZoom: 0, maxZoom: 19, attribution: osAttrib });
-    var wikiLayer = new L.TileLayer( wikiUrl, {minZoom: 0, maxZoom: 19, maxNativeZoom: 18, attribution: osmAttrib });
     var gps2Layer = new L.TileLayer( gps2Url, {minZoom: 0, maxZoom: 20, attribution: osmAttrib });
     var floodedLayer = new L.TileLayer( floodedUrl, {minZoom: 0, maxZoom: 25, maxNativeZoom: 24, attribution: eaAttrib });
     var LA_ProwLayer = new L.TileLayer( LA_ProwUrl, {minZoom: 0, maxZoom: 25, maxNativeZoom: 24, attribution: laAttrib });
@@ -50,7 +48,7 @@ function initmap()
 
 /* ------------------------------------------------------------------------------
  * Set up the map with no zoomControl (there's a button to add it), a map centre
- * of near Milford, zoom 9 and the current layer being my "designation" layer.
+ * of near Milford, zoom 9 and the current layer being my SomeoneElse-Style layer.
  * ------------------------------------------------------------------------------ */
     map = new L.Map('map', {
         zoomControl: false,
@@ -67,8 +65,7 @@ function initmap()
 	"OSM": osmLayer,
 	"DE": deLayer,
 	"OS 201604": os201604Layer,
-	"OS OM Local": oslocalLayer,
-	"Wikimedia": wikiLayer
+	"OS OM Local": oslocalLayer
     };
 
     var overlayMaps = {

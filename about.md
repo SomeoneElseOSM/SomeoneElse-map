@@ -6,6 +6,17 @@ It uses a Javascript library called [Leaflet](http://leafletjs.com/), which is r
 
 Other map layers contain data from other sources - for example the "Flooding" layer contains [Environment Agency](https://check-for-flooding.service.gov.uk/river-and-sea-levels) data.
 
+## What are the other map layers?
+
+* OSM - OpenStreetMap's "[Standard](https://github.com/gravitystorm/openstreetmap-carto)" map tiles.
+* DE - Openstreetmap.de's "[deutscher Stil](https://www.openstreetmap.de/germanstyle.html)".
+* OS 201604 - Ordnance Survey's OS OpenData StreetView, from 2016.
+* OS OM Local - Ordnance Survey's OS OpenMap Local, from 2021.
+* Boundaries - European boundaries, designed to be used as an overlay for the "Default" layer.
+* GPS - GPS traces that have been uploaded to OpenStreetMap.
+* Current flooding - Using up-to-date Environment Agency data, show when certain footpaths and other areas are flooded.  See [here](https://www.openstreetmap.org/user/SomeoneElse/diary/398374).
+* LA PRoW - English and Welsh local authority rights-of-way data, from rowmaps.com (where licence permits).  See [this message](https://lists.openstreetmap.org/pipermail/talk-gb/2021-December/028217.html).
+
 ## Can I use this map?
 
 Yes, you're welcome to link to it.  If you want to link to a specific area zoom in to wherever you are interested in and click "permalink" in the top right-hand corner, and just copy the contents of the URL bar.

@@ -42,7 +42,7 @@ function initmap()
     var oslocalLayer = new L.TileLayer( oslocalUrl, {minZoom: 0, maxZoom: 19, attribution: osAttrib });
     var gps2Layer = new L.TileLayer( gps2Url, {minZoom: 0, maxZoom: 20, attribution: osmAttrib });
     var floodedLayer = new L.TileLayer( floodedUrl, {minZoom: 0, maxZoom: 25, maxNativeZoom: 24, attribution: eaAttrib });
-    var LA_ProwLayer = new L.TileLayer( LA_ProwUrl, {minZoom: 0, maxZoom: 25, maxNativeZoom: 24, attribution: laAttrib });
+    var LA_ProwLayer = new L.TileLayer( LA_ProwUrl, {minZoom: 0, maxZoom: 25, maxNativeZoom: 15, attribution: laAttrib });
 
     // set up the map
 

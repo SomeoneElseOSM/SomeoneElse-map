@@ -16,6 +16,7 @@ Other map layers contain data from other sources - for example the "Flooding" la
 * GPS - GPS traces that have been uploaded to OpenStreetMap.
 * Current flooding - Using up-to-date Environment Agency data, show when certain footpaths and other areas are flooded.  See [here](https://www.openstreetmap.org/user/SomeoneElse/diary/398374).
 * LA PRoW - English and Welsh local authority rights-of-way data, from rowmaps.com (where licence permits).  See [this message](https://lists.openstreetmap.org/pipermail/talk-gb/2021-December/028217.html).
+* No vis paths - paths that aren't designated as England/Wales public rights of way that aren't particular visible or are particularly demanding.
 
 ## Can I use this map?
 
@@ -29,7 +30,7 @@ What you are not allowed to do is any sort of bulk downloading (i.e. downloading
 
 ## Is this map accurate?
 
-This data that this map uses is all added by contributors to the [OpenStreetMap](https://www.openstreetmap.org/) project .  In some areas it'll be significantly better than commercial or governmental alternatives, but in other places (with fewer OSM contributors) it won't be as good.  As with all maps, it may contain erors - because of that please don't infer that you have a legal right to do anything or go anywhere based on information shown on this map.  Also note that a particular route (e.g. [here](https://map.atownsend.org.uk/maps/map/map.html#zoom=17&lat=54.073544&lon=-2.13134)) may be safe to travel along at some times but not others (e.g. when a river is in spate), or only with suitable equipment.  Your safety and that of those with you is your responsibility.
+This data that this map uses is all added by contributors to the [OpenStreetMap](https://www.openstreetmap.org/) project .  In some areas it'll be significantly better than commercial or governmental alternatives, but in other places (with fewer OSM contributors) it won't be as good.  As with all maps, it may contain errors - because of that please don't infer that you have a legal right to do anything or go anywhere based on information shown on this map.  In particular, the "No vis paths" layer includes things that might be "a way to get up a mountain" but may not be an obvious "path".  Also note that a particular route (e.g. [here](https://map.atownsend.org.uk/maps/map/map.html#zoom=17&lat=54.073544&lon=-2.13134)) may be safe to travel along at some times but not others (e.g. when a river is in spate), or only with suitable equipment.  Your safety and that of those with you is your responsibility.
 
 ## Is this map up to date?
 

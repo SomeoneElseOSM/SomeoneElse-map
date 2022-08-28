@@ -9,7 +9,7 @@ function initmap()
 {
     var hetznerUrl='//map.atownsend.org.uk/hot/{z}/{x}/{y}.png';
     var boundaryUrl='//map.atownsend.org.uk/hot2/{z}/{x}/{y}.png';
-    var osmUrl='//a.tile.openstreetmap.org/{z}/{x}/{y}.png';
+    var osmUrl='//tile.openstreetmap.org/{z}/{x}/{y}.png';
     var deUrl='//a.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png';
     var os201604Url='//{s}.os.openstreetmap.org/layer/gb_os_sv_2016_04/{z}/{x}/{y}.png';
     var oslocalUrl='//{s}.os.openstreetmap.org/layer/gb_os_om_local_2020_04/{z}/{x}/{y}.png';

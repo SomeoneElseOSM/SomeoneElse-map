@@ -150,7 +150,7 @@ function pan_centre()
 
 
 /* -------------------------------------------------------------------------
- * A button to pan to a map legend.  This data needs to be loaded manually.
+ * A button to show a map legend.  This data needs to be loaded manually.
  * See https://github.com/SomeoneElseOSM/SomeoneElse-style-legend
  * ------------------------------------------------------------------------- */
 function pan_legend()
@@ -168,7 +168,15 @@ function show_changelog()
 }
 
 /* -------------------------------------------------------------------------
- * A button to pan to display an about screen.
+ * A button to display details of mkgmap maps.
+ * ------------------------------------------------------------------------- */
+function show_mkgmap()
+{
+    window.open ( 'mkgmap.html','_self',false )
+}
+
+/* -------------------------------------------------------------------------
+ * A button to display an about screen.
  * ------------------------------------------------------------------------- */
 function show_about()
 {

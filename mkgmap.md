@@ -4,11 +4,11 @@ Also hosted on this site are some mkgmap-created maps for use with Garmin device
 
 ## Simple maps showing public footpath information
 
-[Here](https://map.atownsend.org.uk/maps/mkgmap_maps/ajt2/) are maps created from OpenStreetMap data for [Great Britain](http://download.geofabrik.de/europe/great-britain.html).  They suppress non-foot-accessible ways and show the detail of public footpaths etc. in England and Wales.  See [this diary entry](https://www.openstreetmap.org/user/SomeoneElse/diary/400106) for more information.  These maps are created from fresh OpenStreetMap data roughly once a week.
+[Here](../mkgmap_maps/ajt2/) are maps created from OpenStreetMap data for [Great Britain](http://download.geofabrik.de/europe/great-britain.html).  They suppress non-foot-accessible ways and show the detail of public footpaths etc. in England and Wales.  See [this diary entry](https://www.openstreetmap.org/user/SomeoneElse/diary/400106) for more information.  These maps are created from fresh OpenStreetMap data roughly once a week.
 
 ## More detailed maps with QA information in them.
 
-The main web map [here](https://map.atownsend.org.uk/maps/map/map.html) contains much more detail then either a simple web map like the [standard OSM](https://www.openstreetmap.org/#map=14/51.7247/-0.7161&layers=S) one, or the simple Garmin map above - sort taginfo's [projects](https://taginfo.openstreetmap.org/projects) list by the number of keys handled to see that.  I've used some of the same [style code](https://github.com/SomeoneElseOSM/SomeoneElse-style/blob/master/style.lua) to also decide what should be shown on some more detailed maps for Garmin devices.  These are available [here](../mkgmap_maps/ajt03/).
+The main web map [here](map.html) contains much more detail then either a simple web map like the [standard OSM](https://www.openstreetmap.org/#map=14/51.7247/-0.7161&layers=S) one, or the simple Garmin map above - sort taginfo's [projects](https://taginfo.openstreetmap.org/projects) list by the number of keys handled to see that.  I've used some of the same [style code](https://github.com/SomeoneElseOSM/SomeoneElse-style/blob/master/style.lua) to also decide what should be shown on some more detailed maps for Garmin devices.  These are available [here](../mkgmap_maps/ajt03/).
 
 ### More description
 

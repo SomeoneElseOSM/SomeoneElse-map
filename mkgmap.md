@@ -4,11 +4,22 @@ Also hosted on this site are some mkgmap-created maps for use with Garmin device
 
 ## Simple maps showing public footpath information
 
-[Here](../mkgmap_maps/ajt2/) are maps created from OpenStreetMap data for [Great Britain](http://download.geofabrik.de/europe/great-britain.html).  They suppress non-foot-accessible ways and show the detail of public footpaths etc. in England and Wales.  See [this diary entry](https://www.openstreetmap.org/user/SomeoneElse/diary/400106) for more information.  These maps are created from fresh OpenStreetMap data roughly once a week.
+These are available <span style="font-size:larger;">[here](../mkgmap_maps/ajt2/)</span>.
+
+They are created using OpenStreetMap data for [Great Britain](http://download.geofabrik.de/europe/great-britain.html) downloaded from Geofabrik.  They:
+
+* suppress non-foot-accessible ways
+* show public footpaths, bridleways etc. with e.g. "(PF") after the name
+* show hiking route relations
+
+See [this diary entry](https://www.openstreetmap.org/user/SomeoneElse/diary/400106) for more information.  They are created from fresh OpenStreetMap data roughly once a week.
 
 ## More detailed maps with QA information in them.
 
-The main web map [here](map.html) contains much more detail then either a simple web map like the [standard OSM](https://www.openstreetmap.org/#map=14/51.7247/-0.7161&layers=S) one, or the simple Garmin map above - sort taginfo's [projects](https://taginfo.openstreetmap.org/projects) list by the number of keys handled to see that.  I've used some of the same [style code](https://github.com/SomeoneElseOSM/SomeoneElse-style/blob/master/style.lua) to also decide what should be shown on some more detailed maps for Garmin devices.  These are available [here](../mkgmap_maps/ajt03/).
+These are available <span style="font-size:larger;">[here](../mkgmap_maps/ajt03/)</span>.
+
+They contain some of the same processing as the [web maps](map.html) on this site, using lua [tag transforms](https://github.com/SomeoneElseOSM/mkgmap_style_ajt/blob/master/transform_03.lua) based on the [ones](https://github.com/SomeoneElseOSM/SomeoneElse-style/blob/master/style.lua) for the web maps.
+.
 
 ### More description
 
@@ -22,7 +33,6 @@ Some features might have both descriptive and quality control information shown.
 
 ## Technical detail
 
-The tag transforms used are [here](https://github.com/SomeoneElseOSM/mkgmap_style_ajt/blob/master/transform_03.lua), and the script that downloads data and create the maps is [here](https://github.com/SomeoneElseOSM/mkgmap_style_ajt/blob/master/transform_03.lua).  See [here](changelog_mkgmap.html) for a changelog.
+The script that downloads data and create the maps is [here](https://github.com/SomeoneElseOSM/mkgmap_style_ajt/blob/master/garmin_map_etrex_03.sh).  See [here](changelog_mkgmap.html) for a changelog.
 
-
-
+.

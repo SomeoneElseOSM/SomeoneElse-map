@@ -33,6 +33,6 @@ Some features might have both descriptive and quality control information shown.
 
 ## Technical detail
 
-The script that downloads data and create the maps is [here](https://github.com/SomeoneElseOSM/mkgmap_style_ajt/blob/master/garmin_map_etrex_03.sh).  See [here](changelog_mkgmap.html) for a changelog.
+The script that downloads data and create the maps is [here](https://github.com/SomeoneElseOSM/mkgmap_style_ajt/blob/master/garmin_map_etrex_03.sh).  See [here](legend_mkgmap.html) for a map legend and [here](changelog_mkgmap.html) for a changelog.
 
 .

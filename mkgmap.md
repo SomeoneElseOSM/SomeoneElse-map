@@ -12,14 +12,13 @@ They are created using OpenStreetMap data for [Great Britain](http://download.ge
 * show public footpaths, bridleways etc. with e.g. "(PF") after the name
 * show hiking route relations
 
-See [this diary entry](https://www.openstreetmap.org/user/SomeoneElse/diary/400106) for more information.  They are created from fresh OpenStreetMap data roughly once a week.
+See [this diary entry](https://www.openstreetmap.org/user/SomeoneElse/diary/400106) for more information.  They are created from fresh OpenStreetMap data roughly once a week.  Files created after about 03:00 on any day are based on OSM data from around 21:21 the previous evening; files created before that around 21:21 the day before that.
 
 ## More detailed maps with QA information in them.
 
 These are available <span style="font-size:larger;">[here](../mkgmap_maps/ajt03/)</span>.
 
-They contain some of the same processing as the [web maps](map.html) on this site, using lua [tag transforms](https://github.com/SomeoneElseOSM/mkgmap_style_ajt/blob/master/transform_03.lua) based on the [ones](https://github.com/SomeoneElseOSM/SomeoneElse-style/blob/master/style.lua) for the web maps.
-.
+They contain some of the same processing as the [web maps](map.html) on this site, using lua [tag transforms](https://github.com/SomeoneElseOSM/mkgmap_style_ajt/blob/master/transform_03.lua) based on the [ones](https://github.com/SomeoneElseOSM/SomeoneElse-style/blob/master/style.lua) for the web maps.  Again, files created after about 03:00 on any day are based on OSM data from around 21:21 the previous evening; files created before that around 21:21 the day before that.
 
 ### More description
 

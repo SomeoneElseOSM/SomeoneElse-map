@@ -60,7 +60,6 @@ function initmap()
     });
 
     map.attributionControl.setPrefix(false);
-    map.addControl( new L.Control.Permalink({ text: 'Permalink', layers: layersControl }) );
 
     var baseMaps = {
 	"Default": hetznerLayer,
@@ -91,6 +90,10 @@ function initmap()
     map.on( 'locationfound', location_success );
     map.on( 'locationerror', location_fail );
 
+/* ------------------------------------------------------------------------------
+ * Add a permalink to the map URL
+ * ------------------------------------------------------------------------------ */
+    var hash = new L.Hash(map)
 }
 
 

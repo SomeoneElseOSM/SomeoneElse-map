@@ -5,18 +5,20 @@ var ajaxRequest;
 var current_zoom = 9;
 var current_layer_url;
 
-var localUrl='//192.168.1.173/hot/{z}/{x}/{y}.png';
+var localUrl='//ubuntuvm78.atownsend.org.uk/hot/{z}/{x}/{y}.png';
 var hetznerUrl='//map.atownsend.org.uk/hot/{z}/{x}/{y}.png';
 var osmUrl='//tile.openstreetmap.org/{z}/{x}/{y}.png';
 var deUrl='//a.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png';
 var os201604Url='//{s}.os.openstreetmap.org/layer/gb_os_sv_2016_04/{z}/{x}/{y}.png';
 var oslocalUrl='//{s}.os.openstreetmap.org/layer/gb_os_om_local_2020_04/{z}/{x}/{y}.png';
 
-var boundaryUrl='//192.168.1.173/hot6/{z}/{x}/{y}.png';
+var boundaryUrl='//ubuntuvm78.atownsend.org.uk/hot6/{z}/{x}/{y}.png';
 var gps2Url='//gps-b.tile.openstreetmap.org/lines/{z}/{x}/{y}.png';
-var floodedUrl='//192.168.1.173/hot4/{z}/{x}/{y}.png';
+var floodedUrl='//ubuntuvm78.atownsend.org.uk/hot4/{z}/{x}/{y}.png';
 var LA_ProwUrl='https://osm.cycle.travel/rights_of_way/{z}/{x}/{y}.png';
-var novisUrl='//192.168.1.173/hot5/{z}/{x}/{y}.png';
+var novisUrl='//ubuntuvm78.atownsend.org.uk/hot5/{z}/{x}/{y}.png';
+
+var hash;
 
 function initmap()
 {
@@ -66,7 +68,7 @@ function initmap()
 
     var baseMaps = {
 	"Local": localLayer,
-	"Default": hetznerLayer,
+	"Hetzner": hetznerLayer,
 	"OSM": osmLayer,
 	"DE": deLayer,
 	"OS 201604": os201604Layer,
@@ -93,9 +95,42 @@ function initmap()
 
     map.on( 'locationfound', location_success );
     map.on( 'locationerror', location_fail );
-    
+
+/* ------------------------------------------------------------------------------
+ * See https://leafletjs.com/reference.html#map-baselayerchange for these events:
+ * ------------------------------------------------------------------------------ */
     map.on('baselayerchange', function (e) {
-	console.log("baselayerchange");
+	any_layer_change( e );
+    });
+
+    map.on('overlayadd', function (e) {
+	any_layer_change( e );
+    });
+
+    map.on('overlayremove', function (e) {
+	any_layer_change( e );
+    });
+
+/* ------------------------------------------------------------------------------
+ * Add a permalink to the map URL
+ * ------------------------------------------------------------------------------ */
+    hash = new L.Hash(map)
+
+/* ------------------------------------------------------------------------------
+ * Above, we selected "localLayer" as the default layer.
+ * Ensure the URL shows that too.
+ * ------------------------------------------------------------------------------ */
+    hash.setHashMeta( "L", false);
+}
+
+
+/* ------------------------------------------------------------------------------
+ * Any leaflet layer change might require us to change the URL, so each of the 
+ * 3 events comes here.
+ * ------------------------------------------------------------------------------ */
+    function any_layer_change( e )
+    {
+	console.log("any_layer_change");
 	console.log(e.layer._url);
 	current_layer_url = e.layer._url;
 
@@ -139,14 +174,7 @@ function initmap()
 
 	if ( total_matched_layers )
 	    hash.setHashMeta(total_matched_layers, false);
-    });
-    
-
-/* ------------------------------------------------------------------------------
- * Add a permalink to the map URL
- * ------------------------------------------------------------------------------ */
-    var hash = new L.Hash(map)
-}
+    }    
 
 
 function match_layers( passed_layer_url )

@@ -3,7 +3,7 @@ var layersControl;
 var zoomControl;
 var ajaxRequest;
 var current_zoom = 9;
-var current_layer_url;
+var current_layer;
 
 var localUrl='//ubuntuvm78.atownsend.org.uk/hot/{z}/{x}/{y}.png';
 var hetznerUrl='//map.atownsend.org.uk/hot/{z}/{x}/{y}.png';
@@ -41,11 +41,12 @@ function initmap()
  * ------------------------------------------------------------------------------ */
     var localLayer = new L.TileLayer( localUrl, {minZoom: 0, maxZoom: 25, maxNativeZoom: 24, attribution: osmAttrib });
     var hetznerLayer = new L.TileLayer( hetznerUrl, {minZoom: 0, maxZoom: 25, maxNativeZoom: 24, attribution: osmAttrib });
-    var boundaryLayer = new L.TileLayer( boundaryUrl, {minZoom: 0, maxZoom: 25, maxNativeZoom: 24, attribution: osmAttrib });
     var osmLayer = new L.TileLayer( osmUrl, {minZoom: 0, maxZoom: 20, maxNativeZoom: 19, attribution: osmAttrib });
     var deLayer = new L.TileLayer( deUrl, {minZoom: 0, maxZoom: 20, maxNativeZoom: 19, attribution: osmAttrib });
     var os201604Layer = new L.TileLayer( os201604Url, {minZoom: 0, maxZoom: 19, attribution: osAttrib });
     var oslocalLayer = new L.TileLayer( oslocalUrl, {minZoom: 0, maxZoom: 19, attribution: osAttrib });
+
+    var boundaryLayer = new L.TileLayer( boundaryUrl, {minZoom: 0, maxZoom: 25, maxNativeZoom: 24, attribution: osmAttrib });
     var gps2Layer = new L.TileLayer( gps2Url, {minZoom: 0, maxZoom: 20, attribution: osmAttrib });
     var floodedLayer = new L.TileLayer( floodedUrl, {minZoom: 0, maxZoom: 25, maxNativeZoom: 24, attribution: eaAttrib });
     var LA_ProwLayer = new L.TileLayer( LA_ProwUrl, {minZoom: 0, maxZoom: 25, maxNativeZoom: 18, attribution: laAttrib });
@@ -121,6 +122,82 @@ function initmap()
  * Ensure the URL shows that too.
  * ------------------------------------------------------------------------------ */
     hash.setHashMeta( "L", false);
+
+/* ------------------------------------------------------------------------------
+ * Next we need some way of knowing that a user has used a permalink resulting in
+ * a different map layer.
+ * ------------------------------------------------------------------------------ */
+    map.on("hashmetachange", function(newState) {
+        console.log('hashmetachange detected', newState.meta);
+
+	if ( newState.meta == "L" )
+	{
+	    console.log("layer L");
+
+	    if ( current_layer )
+		map.removeLayer(current_layer);
+
+	    map.addLayer(localLayer);
+	    current_layer = localLayer;
+	}
+
+	if ( newState.meta == "H" )
+	{
+	    console.log("layer H");
+
+	    if ( current_layer )
+		map.removeLayer(current_layer);
+
+	    map.addLayer(hetznerLayer);
+	    current_layer = hetznerLayer;
+	}
+
+	if ( newState.meta == "O" )
+	{
+	    console.log("layer O");
+
+	    if ( current_layer )
+		map.removeLayer(current_layer);
+
+	    map.addLayer(osmLayer);
+	    current_layer = osmLayer;
+	}
+
+	if ( newState.meta == "D" )
+	{
+	    console.log("layer D");
+
+	    if ( current_layer )
+		map.removeLayer(current_layer);
+
+	    map.addLayer(deLayer);
+	    current_layer = deLayer;
+	}
+
+	if ( newState.meta == "6" )
+	{
+	    console.log("layer 6");
+
+	    if ( current_layer )
+		map.removeLayer(current_layer);
+
+	    map.addLayer(os201604Layer);
+	    current_layer = os201604Layer;
+	}
+
+	if ( newState.meta == "2" )
+	{
+	    console.log("layer 2");
+
+	    if ( current_layer )
+		map.removeLayer(current_layer);
+
+	    map.addLayer(oslocalLayer);
+	    current_layer = oslocalLayer;
+	}
+    });
+    console.log('Initialisation completed');
+
 }
 
 
@@ -132,7 +209,7 @@ function initmap()
     {
 	console.log("any_layer_change");
 	console.log(e.layer._url);
-	current_layer_url = e.layer._url;
+	current_layer = e.layer;
 
 /* ------------------------------------------------------------------------------
  * At this point the "number of layers" found by counting map.eachLayer will be 1

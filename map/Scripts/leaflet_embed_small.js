@@ -257,7 +257,7 @@ function pan_legend()
 }
 
 /* -------------------------------------------------------------------------
- * A button to pan to display a changelog.
+ * A button to display a changelog.
  * ------------------------------------------------------------------------- */
 function show_changelog()
 {

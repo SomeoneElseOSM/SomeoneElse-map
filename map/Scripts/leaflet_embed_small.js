@@ -20,12 +20,10 @@ var novisUrl='//ubuntuvm78.atownsend.org.uk/hot5/{z}/{x}/{y}.png';
 
 var hash;
 
-function initmap()
-{
-    var osmAttrib='Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>';
-    var osAttrib='Map data &copy; <a href="https://www.ordnancesurvey.co.uk/business-government/products/open-map-local">Ordnance Survey</a> under <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">OGL</a>';
-    var eaAttrib='current flooding &copy; <a href="https://check-for-flooding.service.gov.uk/find-location">Environment Agency</a> under <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">OGL</a>';
-    var laAttrib='PRoW overlay &copy; local authorities under <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">OGL</a> & <a href="https://rowmaps.com">rowmaps.com</a>';
+var osmAttrib='Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>';
+var osAttrib='Map data &copy; <a href="https://www.ordnancesurvey.co.uk/business-government/products/open-map-local">Ordnance Survey</a> under <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">OGL</a>';
+var eaAttrib='current flooding &copy; <a href="https://check-for-flooding.service.gov.uk/find-location">Environment Agency</a> under <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">OGL</a>';
+var laAttrib='PRoW overlay &copy; local authorities under <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">OGL</a> & <a href="https://rowmaps.com">rowmaps.com</a>';
 
 /* ------------------------------------------------------------------------------
  * A note about layer min and max zoom levels:
@@ -39,19 +37,21 @@ function initmap()
  * We support maxZoom 19 across the board to allow switching from one layer to 
  * another without just getting a grey background.
  * ------------------------------------------------------------------------------ */
-    var localLayer = new L.TileLayer( localUrl, {minZoom: 0, maxZoom: 25, maxNativeZoom: 24, attribution: osmAttrib });
-    var hetznerLayer = new L.TileLayer( hetznerUrl, {minZoom: 0, maxZoom: 25, maxNativeZoom: 24, attribution: osmAttrib });
-    var osmLayer = new L.TileLayer( osmUrl, {minZoom: 0, maxZoom: 20, maxNativeZoom: 19, attribution: osmAttrib });
-    var deLayer = new L.TileLayer( deUrl, {minZoom: 0, maxZoom: 20, maxNativeZoom: 19, attribution: osmAttrib });
-    var os201604Layer = new L.TileLayer( os201604Url, {minZoom: 0, maxZoom: 19, attribution: osAttrib });
-    var oslocalLayer = new L.TileLayer( oslocalUrl, {minZoom: 0, maxZoom: 19, attribution: osAttrib });
+var localLayer = new L.TileLayer( localUrl, {minZoom: 0, maxZoom: 25, maxNativeZoom: 24, attribution: osmAttrib });
+var hetznerLayer = new L.TileLayer( hetznerUrl, {minZoom: 0, maxZoom: 25, maxNativeZoom: 24, attribution: osmAttrib });
+var osmLayer = new L.TileLayer( osmUrl, {minZoom: 0, maxZoom: 20, maxNativeZoom: 19, attribution: osmAttrib });
+var deLayer = new L.TileLayer( deUrl, {minZoom: 0, maxZoom: 20, maxNativeZoom: 19, attribution: osmAttrib });
+var os201604Layer = new L.TileLayer( os201604Url, {minZoom: 0, maxZoom: 19, attribution: osAttrib });
+var oslocalLayer = new L.TileLayer( oslocalUrl, {minZoom: 0, maxZoom: 19, attribution: osAttrib });
 
-    var boundaryLayer = new L.TileLayer( boundaryUrl, {minZoom: 0, maxZoom: 25, maxNativeZoom: 24, attribution: osmAttrib });
-    var gps2Layer = new L.TileLayer( gps2Url, {minZoom: 0, maxZoom: 20, attribution: osmAttrib });
-    var floodedLayer = new L.TileLayer( floodedUrl, {minZoom: 0, maxZoom: 25, maxNativeZoom: 24, attribution: eaAttrib });
-    var LA_ProwLayer = new L.TileLayer( LA_ProwUrl, {minZoom: 0, maxZoom: 25, maxNativeZoom: 18, attribution: laAttrib });
-    var novisLayer = new L.TileLayer( novisUrl, {minZoom: 0, maxZoom: 25, maxNativeZoom: 24, attribution: osmAttrib });
+var boundaryLayer = new L.TileLayer( boundaryUrl, {minZoom: 0, maxZoom: 25, maxNativeZoom: 24, attribution: osmAttrib });
+var gps2Layer = new L.TileLayer( gps2Url, {minZoom: 0, maxZoom: 20, attribution: osmAttrib });
+var floodedLayer = new L.TileLayer( floodedUrl, {minZoom: 0, maxZoom: 25, maxNativeZoom: 24, attribution: eaAttrib });
+var LA_ProwLayer = new L.TileLayer( LA_ProwUrl, {minZoom: 0, maxZoom: 25, maxNativeZoom: 18, attribution: laAttrib });
+var novisLayer = new L.TileLayer( novisUrl, {minZoom: 0, maxZoom: 25, maxNativeZoom: 24, attribution: osmAttrib });
 
+function initmap()
+{
     // set up the map
 
 /* ------------------------------------------------------------------------------
@@ -118,11 +118,25 @@ function initmap()
     hash = new L.Hash(map)
 
 /* ------------------------------------------------------------------------------
- * Above, we selected "localLayer" as the default layer.
- * Ensure the URL shows that too.
+ * What state is the map in and what does the URL look like?
+ * If some layers are defined in them, try and load them.
  * ------------------------------------------------------------------------------ */
-    hash.setHashMeta( "L", false);
+    console.log('Initial location.hash', location.hash);
+    hash2 = new L.Hash.parseHash(location.hash);
+    console.log('new hash2.meta', hash2.meta);
+    hash.setHashMeta( hash2.meta, false);
 
+    for (var i = 0; i < hash2.meta.length; i++)
+    {
+	console.log("hash.meta[i]", hash2.meta[i]);
+	process_newmeta(hash2.meta[i]);
+    }
+
+    console.log('After process_newmeta array calls');
+
+      map.on("hashmetainit", function(initState) {
+          console.log('hashmetainit detected', initState.meta);
+      })
 /* ------------------------------------------------------------------------------
  * Next we need some way of knowing that a user has used a permalink resulting in
  * a different map layer.
@@ -130,74 +144,119 @@ function initmap()
     map.on("hashmetachange", function(newState) {
         console.log('hashmetachange detected', newState.meta);
 
-	if ( newState.meta == "L" )
-	{
-	    console.log("layer L");
+/* ------------------------------------------------------------------------------
+ * Remove any overlays.  If they're in the URL, they will get re-added.
+ * ------------------------------------------------------------------------------ */
+        console.log('before overlay deletion');
+	map.removeLayer(boundaryLayer);
+	map.removeLayer(gps2Layer);
+	map.removeLayer(LA_ProwLayer);
+	map.removeLayer(novisLayer);
+        console.log('after overlay deletion');
 
-	    if ( current_layer )
-		map.removeLayer(current_layer);
+/* ------------------------------------------------------------------------------
+ * newState.meta is a string with layers in it, e.g. "HB" for the "Hetzner" base
+ * layer and te "Boundaries" overlay layer.
+ * There will be exactly one base layer and 0 or more overlay layers.
+ * "any_layer_change" below prevents the meta from having more than one base 
+ * layer in it.
+ *
+ * For each base or overlay layer, add it (and if it is a base layer remove the
+ * previous base layer).
+ * ------------------------------------------------------------------------------ */
+	for (var i = 0; i < newState.meta.length; i++)
+	    {
+		console.log("newState.meta[i]", newState.meta[i]);
+		process_newmeta(newState.meta[i]);
 
-	    map.addLayer(localLayer);
-	    current_layer = localLayer;
-	}
-
-	if ( newState.meta == "H" )
-	{
-	    console.log("layer H");
-
-	    if ( current_layer )
-		map.removeLayer(current_layer);
-
-	    map.addLayer(hetznerLayer);
-	    current_layer = hetznerLayer;
-	}
-
-	if ( newState.meta == "O" )
-	{
-	    console.log("layer O");
-
-	    if ( current_layer )
-		map.removeLayer(current_layer);
-
-	    map.addLayer(osmLayer);
-	    current_layer = osmLayer;
-	}
-
-	if ( newState.meta == "D" )
-	{
-	    console.log("layer D");
-
-	    if ( current_layer )
-		map.removeLayer(current_layer);
-
-	    map.addLayer(deLayer);
-	    current_layer = deLayer;
-	}
-
-	if ( newState.meta == "6" )
-	{
-	    console.log("layer 6");
-
-	    if ( current_layer )
-		map.removeLayer(current_layer);
-
-	    map.addLayer(os201604Layer);
-	    current_layer = os201604Layer;
-	}
-
-	if ( newState.meta == "2" )
-	{
-	    console.log("layer 2");
-
-	    if ( current_layer )
-		map.removeLayer(current_layer);
-
-	    map.addLayer(oslocalLayer);
-	    current_layer = oslocalLayer;
-	}
+	    }
     });
     console.log('Initialisation completed');
 
+}
+
+
+function process_newmeta( newmeta )
+{
+    console.log('process_newmeta', newmeta);
+    if ( newmeta == "L" )
+    {
+	if ( current_layer )
+	    map.removeLayer(current_layer);
+
+	map.addLayer(localLayer);
+	current_layer = localLayer;
+    }
+
+    if ( newmeta == "H" )
+    {
+	if ( current_layer )
+	    map.removeLayer(current_layer);
+
+	map.addLayer(hetznerLayer);
+	current_layer = hetznerLayer;
+    }
+
+    if ( newmeta == "O" )
+    {
+	if ( current_layer )
+	    map.removeLayer(current_layer);
+
+	map.addLayer(osmLayer);
+	current_layer = osmLayer;
+    }
+
+    if ( newmeta == "D" )
+    {
+	if ( current_layer )
+	    map.removeLayer(current_layer);
+
+	map.addLayer(deLayer);
+	current_layer = deLayer;
+    }
+
+    if ( newmeta == "6" )
+    {
+	if ( current_layer )
+	    map.removeLayer(current_layer);
+
+	map.addLayer(os201604Layer);
+	current_layer = os201604Layer;
+    }
+
+    if ( newmeta == "2" )
+    {
+	if ( current_layer )
+	    map.removeLayer(current_layer);
+
+	map.addLayer(oslocalLayer);
+	current_layer = oslocalLayer;
+    }
+
+    if ( newmeta == "B" )
+    {
+	map.addLayer(boundaryLayer);
+    }
+
+    if ( newmeta == "G" )
+    {
+	map.addLayer(gps2Layer);
+    }
+
+    if ( newmeta == "F" )
+    {
+	map.addLayer(floodedLayer);
+    }
+
+    if ( newmeta == "P" )
+    {
+	map.addLayer(LA_ProwLayer);
+    }
+
+    if ( newmeta == "N" )
+    {
+	map.addLayer(novisLayer);
+    }
 }
 
 
@@ -247,7 +306,7 @@ function initmap()
 		}
 	});
 
-	console.log(total_matched_layers);
+	console.log("total_matched_layers",total_matched_layers);
 
 	if ( total_matched_layers )
 	    hash.setHashMeta(total_matched_layers, false);

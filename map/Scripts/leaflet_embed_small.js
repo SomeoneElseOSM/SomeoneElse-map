@@ -5,21 +5,36 @@ var ajaxRequest;
 var current_zoom = 9;
 var current_layer;
 
-var localUrl='//ubuntuvm78.atownsend.org.uk/hot/{z}/{x}/{y}.png';
+/* ------------------------------------------------------------------------------
+ * The "live" version on map.atownsend.org.uk does not display "local" maps.
+ * Test versions do, and also display "Hetzner" maps too.
+ * The code supports switching to and from local maps, even if it isn't in 
+ * "basemaps"
+ * localUrl is defined idenitcally to hetznerUrl.
+ * ------------------------------------------------------------------------------ */
+var localUrl='//map.atownsend.org.uk/hot/{z}/{x}/{y}.png';
 var hetznerUrl='//map.atownsend.org.uk/hot/{z}/{x}/{y}.png';
 var osmUrl='//tile.openstreetmap.org/{z}/{x}/{y}.png';
 var deUrl='//a.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png';
 var os201604Url='//{s}.os.openstreetmap.org/layer/gb_os_sv_2016_04/{z}/{x}/{y}.png';
 var oslocalUrl='//{s}.os.openstreetmap.org/layer/gb_os_om_local_2020_04/{z}/{x}/{y}.png';
 
-var boundaryUrl='//ubuntuvm78.atownsend.org.uk/hot6/{z}/{x}/{y}.png';
+/* ------------------------------------------------------------------------------
+ * On installations other than map.atownsend.org.uk, the URLs below will normally
+ * point locally rather than to map.atownsend.org.uk .
+ * ------------------------------------------------------------------------------ */
+var boundaryUrl='//map.atownsend.org.uk/hot6/{z}/{x}/{y}.png';
 var gps2Url='//gps-b.tile.openstreetmap.org/lines/{z}/{x}/{y}.png';
-var floodedUrl='//ubuntuvm78.atownsend.org.uk/hot4/{z}/{x}/{y}.png';
+var floodedUrl='//map.atownsend.org.uk/hot4/{z}/{x}/{y}.png';
 var LA_ProwUrl='https://osm.cycle.travel/rights_of_way/{z}/{x}/{y}.png';
-var novisUrl='//ubuntuvm78.atownsend.org.uk/hot5/{z}/{x}/{y}.png';
+var novisUrl='//map.atownsend.org.uk/hot5/{z}/{x}/{y}.png';
 
 var hash;
 
+/* ------------------------------------------------------------------------------
+ * Layer attributions are added together and displayed at the bottom right of 
+ * the screen.
+ * ------------------------------------------------------------------------------ */
 var osmAttrib='Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>';
 var osAttrib='Map data &copy; <a href="https://www.ordnancesurvey.co.uk/business-government/products/open-map-local">Ordnance Survey</a> under <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">OGL</a>';
 var eaAttrib='current flooding &copy; <a href="https://check-for-flooding.service.gov.uk/find-location">Environment Agency</a> under <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">OGL</a>';
@@ -28,14 +43,12 @@ var laAttrib='PRoW overlay &copy; local authorities under <a href="https://www.n
 /* ------------------------------------------------------------------------------
  * A note about layer min and max zoom levels:
  *
- * My renderd-generated layers are valid from 0 to 18 only.  It's only really useful from layer 5.
+ * My renderd-generated layers are valid from 0 to 24 only.
  * The "standard" OSM tiles are valid from 0 to 19.
  * OS OpenData_StreetView is valid from 0 to 19 (which is actually an overzoomed 18)
  * The GPS layer is valid from 0 to 24, but we only go to 20 here.
  *
- * Leaflet now supports a lower maxZoom than maxNativeZoom (i.e. overzoom).
- * We support maxZoom 19 across the board to allow switching from one layer to 
- * another without just getting a grey background.
+ * Leaflet supports a lower maxZoom than maxNativeZoom (i.e. overzoom).
  * ------------------------------------------------------------------------------ */
 var localLayer = new L.TileLayer( localUrl, {minZoom: 0, maxZoom: 25, maxNativeZoom: 24, attribution: osmAttrib });
 var hetznerLayer = new L.TileLayer( hetznerUrl, {minZoom: 0, maxZoom: 25, maxNativeZoom: 24, attribution: osmAttrib });
@@ -62,14 +75,25 @@ function initmap()
         zoomControl: false,
 	center: new L.LatLng( 53, -1.5 ),
 	zoom: current_zoom,
-	layers: [ localLayer ]
+	layers: [ hetznerLayer ]
     });
 
     map.attributionControl.setPrefix(false);
 
+/* ------------------------------------------------------------------------------
+ * The "live" version on map.atownsend.org.uk does not display "local" maps.
+ * Test versions do, and also display "Hetzner" maps too.
+ *
+ * In those cases, the definition below will be:
+ *     "Local": localLayer,
+ *     "Hetzner": hetznerLayer,
+ *
+ * The code supports switching to and from local maps, even if it isn't in 
+ * "basemaps".
+ * localUrl is defined above idenitcally to hetznerUrl.
+ * ------------------------------------------------------------------------------ */
     var baseMaps = {
-	"Local": localLayer,
-	"Hetzner": hetznerLayer,
+	"Default": hetznerLayer,
 	"OSM": osmLayer,
 	"DE": deLayer,
 	"OS 201604": os201604Layer,
@@ -178,6 +202,12 @@ function initmap()
 
 function process_newmeta( newmeta )
 {
+/* ------------------------------------------------------------------------------
+ * The "live" version on map.atownsend.org.uk does not display "local" maps.
+ * The code supports switching to and from local maps, even if it isn't in 
+ * "basemaps".
+ * localUrl is defined above idenitcally to hetznerUrl.
+ * ------------------------------------------------------------------------------ */
     console.log('process_newmeta', newmeta);
     if ( newmeta == "L" )
     {
@@ -317,6 +347,12 @@ function match_layers( passed_layer_url )
 {
     var current_matched_layer = "";
 
+/* ------------------------------------------------------------------------------
+ * The "live" version on map.atownsend.org.uk does not display "local" maps.
+ * The code supports switching to and from local maps, even if it isn't in 
+ * "basemaps".
+ * localUrl is defined above idenitcally to hetznerUrl.
+ * ------------------------------------------------------------------------------ */
     if ( passed_layer_url === localUrl )
 	current_matched_layer = "L";
 

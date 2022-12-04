@@ -10,7 +10,7 @@ var current_layer;
  * Test versions do, and also display "Hetzner" maps too.
  * The code supports switching to and from local maps, even if it isn't in 
  * "basemaps"
- * localUrl is defined idenitcally to hetznerUrl.
+ * localUrl is defined identically to hetznerUrl.
  * ------------------------------------------------------------------------------ */
 var localUrl='//map.atownsend.org.uk/hot/{z}/{x}/{y}.png';
 var hetznerUrl='//map.atownsend.org.uk/hot/{z}/{x}/{y}.png';

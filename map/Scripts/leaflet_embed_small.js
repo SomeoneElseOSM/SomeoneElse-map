@@ -90,7 +90,7 @@ function initmap()
  *
  * The code supports switching to and from local maps, even if it isn't in 
  * "basemaps".
- * localUrl is defined above idenitcally to hetznerUrl.
+ * localUrl is defined above identically to hetznerUrl.
  * ------------------------------------------------------------------------------ */
     var baseMaps = {
 	"Default": hetznerLayer,
@@ -206,7 +206,7 @@ function process_newmeta( newmeta )
  * The "live" version on map.atownsend.org.uk does not display "local" maps.
  * The code supports switching to and from local maps, even if it isn't in 
  * "basemaps".
- * localUrl is defined above idenitcally to hetznerUrl.
+ * localUrl is defined above identically to hetznerUrl.
  * ------------------------------------------------------------------------------ */
     console.log('process_newmeta', newmeta);
     if ( newmeta == "L" )
@@ -351,7 +351,7 @@ function match_layers( passed_layer_url )
  * The "live" version on map.atownsend.org.uk does not display "local" maps.
  * The code supports switching to and from local maps, even if it isn't in 
  * "basemaps".
- * localUrl is defined above idenitcally to hetznerUrl.
+ * localUrl is defined above identically to hetznerUrl.
  * ------------------------------------------------------------------------------ */
     if ( passed_layer_url === localUrl )
 	current_matched_layer = "L";

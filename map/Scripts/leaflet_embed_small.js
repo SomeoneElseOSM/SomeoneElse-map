@@ -143,7 +143,7 @@ function initmap()
 
 /* ------------------------------------------------------------------------------
  * What state is the map in and what does the URL look like?
- * If some layers are defined in them, try and load them.
+ * If some layers are defined in there, try and load them.
  * ------------------------------------------------------------------------------ */
     console.log('Initial location.hash', location.hash);
     hash2 = new L.Hash.parseHash(location.hash);

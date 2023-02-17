@@ -1,6 +1,6 @@
 # What is this map?
 
-The default layer on this map is created from [OpenStreetMap](https://www.openstreetmap.org/about) data.  It's designed to show information that's specifically useful to rural pedestrians - things like public footpaths and bridleways, and which roads you can safely walk along because there's a roadside pavement or verge.  There's a map legend [here](https://map.atownsend.org.uk/maps/map/map.html#zoom=14&lat=-24.99839&lon=135.04956), but it's quite large, so you'll need to scroll around to see it all, and also zoom in to see things that are only visible when you are zoomed in.  Changes that have been made to what is shown on the map can be seen [here](https://map.atownsend.org.uk/maps/map/changelog.html).
+The default layer on this map is created from [OpenStreetMap](https://www.openstreetmap.org/about) data.  It's designed to show information that's specifically useful to rural pedestrians - things like public footpaths and bridleways, and which roads you can safely walk along because there's a roadside pavement or verge.  There's a map legend [here](https://map.atownsend.org.uk/maps/map/map.html#zoom=14&lat=-24.99839&lon=135.04956), but it's quite large, so you'll need to scroll around to see it all, and also zoom in to see things that are only visible when you are zoomed in.  Recent changes that have been made to what is shown on the map can be seen [here](https://map.atownsend.org.uk/maps/map/changelog.html).
 
 It uses a Javascript library called [Leaflet](http://leafletjs.com/), which is really well documented and simple to use, and makes it easy to create map web sites such as this one.
 
@@ -18,9 +18,19 @@ Other map layers contain data from other sources - for example the "Flooding" la
 * LA PRoW - English and Welsh local authority rights-of-way data, from rowmaps.com (where licence permits).  See [this message](https://lists.openstreetmap.org/pipermail/talk-gb/2021-December/028217.html).
 * No vis paths - paths that aren't designated as England/Wales public rights of way that aren't particular visible or are particularly demanding.
 
+## Why is this map better than other maps made using OSM data?
+
+It handles a much larger proportion of the tags used in OSM [than other maps](https://taginfo.openstreetmap.org/projects).  It groups similar objects together, so for example "shop=vehicle" will appear with the same icon as "shop-car".  It does this via osm2pgsql and lua to customise the database for rendering, making queries easy to write.
+
+It uses a wider variety of icons than other maps, especially icons with a small modifier indicating a certain feature, such as a shop that sells zero-waste products.
+
+It shows features not normally shown on general-purpose map tiles, such as England and Wales rights of way and hiking and cycling routes.
+
+It uses geographical customisation so that (for example) a Welsh name will be shown in Welsh-speaking parts of Wales and an English name in English-speaking parts.
+
 ## Can I use this map?
 
-Yes, you're welcome to link to it.  If you want to link to a specific area zoom in to wherever you are interested in and click "permalink" in the top right-hand corner, and just copy the contents of the URL bar.
+Yes, you're welcome to link to it.  As you zoom in the URL changes, so the contents of the URL bar should always link to what you are seeing.
 
 ## Can I use these map tiles?
 
@@ -46,4 +56,4 @@ You can, but only by creating your version of the map using your own map tiles. 
 
 ## If I use these map tiles, what will people know about me?
 
-[I](https://www.openstreetmap.org/user/SomeoneElse) am the only person that I've set up to have access to this server (tiles loaded from other survers are accessed by other people, of course).  If you request tiles then the normal Linux logs will record the fact (Apache's "access" log stores which IP address asked for a tile when, and the "syslog" stores details about new tiles being rendered).  The logs store data for about a week and then wrap around.  I can't comment on who might be watching traffic between you and the server (in Finland).  If you're particularly worried about people NOT knowing that you're requesting certain map tiles I recommend that you set up your own server and serve tiles from there instead.
+[I](https://www.openstreetmap.org/user/SomeoneElse) am the only person that I've set up to have access to this server (tiles loaded from other servers are accessed by other people, of course).  If you request tiles then the normal Linux logs will record the fact (Apache's "access" log stores which IP address asked for a tile when, and the "syslog" stores details about new tiles being rendered).  The logs store data for about a week and then wrap around.  I can't comment on who might be watching traffic between you and the server (in Finland).  If you're particularly worried about people NOT knowing that you're requesting certain map tiles I recommend that you set up your own server and serve tiles from there instead.

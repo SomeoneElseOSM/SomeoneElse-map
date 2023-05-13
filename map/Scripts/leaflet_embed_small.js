@@ -58,8 +58,9 @@ var hash;
  * the screen.
  * ------------------------------------------------------------------------------ */
 var osmAttrib='Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>';
-var osAttrib='Map data &copy; <a href="https://www.ordnancesurvey.co.uk/business-government/products/open-map-local">Ordnance Survey</a> under <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">OGL</a>';
-var eaAttrib='current flooding &copy; <a href="https://check-for-flooding.service.gov.uk/find-location">Environment Agency</a> under <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">OGL</a>';
+var osAttrib='Map data &copy; <a href="https://www.ordnancesurvey.co.uk/business-government/products/open-map-local">Ordnance Survey</a> under <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">OGL v3.0</a>';
+var humAttrib='Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>. Tiles style by <a href="https://www.hotosm.org/">Humanitarian OpenStreetMap Team</a> hosted by <a href="https://openstreetmap.fr/">OpenStreetMap France</a>';
+var eaAttrib='current flooding &copy; <a href="https://check-for-flooding.service.gov.uk/find-location">Environment Agency</a> under <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">OGL v3.0</a>';
 var laAttrib='PRoW overlay &copy; local authorities under <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">OGL v3.0</a> & <a href="https://rowmaps.com">rowmaps.com</a>';
 var osmukcadAttrib='<a href="https://osmuk.org/cadastral-parcels/">OSMUK</a> cadastral parcels: Contains public sector information licensed under <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">OGL v3.0</a>';
 
@@ -79,7 +80,7 @@ var osmLayer = new L.TileLayer( osmUrl, {minZoom: 0, maxZoom: 20, maxNativeZoom:
 var deLayer = new L.TileLayer( deUrl, {minZoom: 0, maxZoom: 20, maxNativeZoom: 19, attribution: osmAttrib });
 var os201604Layer = new L.TileLayer( os201604Url, {minZoom: 0, maxZoom: 19, attribution: osAttrib });
 var oslocalLayer = new L.TileLayer( oslocalUrl, {minZoom: 0, maxZoom: 19, attribution: osAttrib });
-var humLayer = new L.TileLayer( humUrl, {minZoom: 0, maxZoom: 19, attribution: osAttrib });
+var humLayer = new L.TileLayer( humUrl, {minZoom: 0, maxZoom: 19, attribution: humAttrib });
 
 var boundaryLayer = new L.TileLayer( boundaryUrl, {minZoom: 0, maxZoom: 25, maxNativeZoom: 24, attribution: osmAttrib });
 var gps2Layer = new L.TileLayer( gps2Url, {minZoom: 0, maxZoom: 20, attribution: osmAttrib });

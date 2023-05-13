@@ -10,17 +10,19 @@ Other map layers contain data from other sources - for example the "Flooding" la
 
 * OSM - OpenStreetMap's "[Standard](https://github.com/gravitystorm/openstreetmap-carto)" map tiles.
 * DE - Openstreetmap.de's "[deutscher Stil](https://www.openstreetmap.de/germanstyle.html)".
-* OS 201604 - Ordnance Survey's OS OpenData StreetView, from 2016.
-* OS OM Local - Ordnance Survey's OS OpenMap Local, from 2021.
+* OS 201604 - Ordnance Survey's OS OpenData StreetView, from April 2016.
+* OS OM Local - Ordnance Survey's OS OpenMap Local, from October 2022.
+* Humanitarian - OSM France's humanitarian tiles.
 * Boundaries - European boundaries, designed to be used as an overlay for the "Default" layer.
 * GPS - GPS traces that have been uploaded to OpenStreetMap.
 * Current flooding - Using up-to-date Environment Agency data, show when certain footpaths and other areas are flooded.  See [here](https://www.openstreetmap.org/user/SomeoneElse/diary/398374).
 * LA PRoW - English and Welsh local authority rights-of-way data, from rowmaps.com (where licence permits).  See [this message](https://lists.openstreetmap.org/pipermail/talk-gb/2021-December/028217.html).
-* No vis paths - paths that aren't designated as England/Wales public rights of way that aren't particular visible or are particularly demanding.
+* No vis paths - paths that aren't designated as England/Wales public rights of way that aren't particularly visible or are particularly demanding.
+* OSMUK cadastral parcels - Zoom 18 and above only.  See [here](https://osmuk.org/cadastral-parcels/).
 
 ## Why is this map better than other maps made using OSM data?
 
-It handles a much larger proportion of the tags used in OSM [than other maps](https://taginfo.openstreetmap.org/projects).  It groups similar objects together, so for example "shop=vehicle" will appear with the same icon as "shop-car".  It does this via osm2pgsql and lua to customise the database for rendering, making queries easy to write.
+It handles a much larger proportion of the tags used in OSM [than other maps](https://taginfo.openstreetmap.org/projects).  It groups similar objects together, so for example "shop=vehicle" will appear with the same icon as "shop=car".  It does this via osm2pgsql and lua to customise the database for rendering, making queries easy to write.
 
 It uses a wider variety of icons than other maps, especially icons with a small modifier indicating a certain feature, such as a shop that sells zero-waste products.
 

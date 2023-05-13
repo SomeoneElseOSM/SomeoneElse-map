@@ -18,6 +18,7 @@ var osmUrl='//tile.openstreetmap.org/{z}/{x}/{y}.png';
 var deUrl='//a.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png';
 var os201604Url='//{s}.os.openstreetmap.org/layer/gb_os_sv_2016_04/{z}/{x}/{y}.png';
 var oslocalUrl='//{s}.os.openstreetmap.org/layer/gb_os_om_local_2020_04/{z}/{x}/{y}.png';
+var humUrl='//77.95.65.40/hot/{z}/{x}/{y}.png';
 
 /* ------------------------------------------------------------------------------
  * On installations other than map.atownsend.org.uk, the URLs below will normally
@@ -56,6 +57,7 @@ var osmLayer = new L.TileLayer( osmUrl, {minZoom: 0, maxZoom: 20, maxNativeZoom:
 var deLayer = new L.TileLayer( deUrl, {minZoom: 0, maxZoom: 20, maxNativeZoom: 19, attribution: osmAttrib });
 var os201604Layer = new L.TileLayer( os201604Url, {minZoom: 0, maxZoom: 19, attribution: osAttrib });
 var oslocalLayer = new L.TileLayer( oslocalUrl, {minZoom: 0, maxZoom: 19, attribution: osAttrib });
+var humLayer = new L.TileLayer( humUrl, {minZoom: 0, maxZoom: 19, attribution: osAttrib });
 
 var boundaryLayer = new L.TileLayer( boundaryUrl, {minZoom: 0, maxZoom: 25, maxNativeZoom: 24, attribution: osmAttrib });
 var gps2Layer = new L.TileLayer( gps2Url, {minZoom: 0, maxZoom: 20, attribution: osmAttrib });
@@ -97,7 +99,8 @@ function initmap()
 	"OSM": osmLayer,
 	"DE": deLayer,
 	"OS 201604": os201604Layer,
-	"OS OM Local": oslocalLayer
+	"OS OM Local": oslocalLayer,
+	"Humanitarian": humLayer
     };
 
     var overlayMaps = {
@@ -263,6 +266,15 @@ function process_newmeta( newmeta )
 	current_layer = oslocalLayer;
     }
 
+    if ( newmeta == "U" )
+    {
+	if ( current_layer )
+	    map.removeLayer(current_layer);
+
+	map.addLayer(humLayer);
+	current_layer = humLayer;
+    }
+
     if ( newmeta == "B" )
     {
 	map.addLayer(boundaryLayer);
@@ -370,6 +382,9 @@ function match_layers( passed_layer_url )
 
     if ( passed_layer_url === oslocalUrl )
 	current_matched_layer = "2";
+
+    if ( passed_layer_url === humUrl )
+	current_matched_layer = "U";
 
     if ( passed_layer_url === boundaryUrl )
 	current_matched_layer = "B";

@@ -332,13 +332,15 @@ function process_newmeta( newmeta )
                  ( total_matched_layers  === "O" ) ||
                  ( total_matched_layers  === "D" ) ||
                  ( total_matched_layers  === "6" ) ||
-                 ( total_matched_layers  === "2" )) &&
+                 ( total_matched_layers  === "2" ) ||
+                 ( total_matched_layers  === "U" )) &&
 		(( current_matched_layer === "L" ) ||
                  ( current_matched_layer === "H" ) ||
                  ( current_matched_layer === "O" ) ||
                  ( current_matched_layer === "D" ) ||
                  ( current_matched_layer === "6" ) ||
-                 ( current_matched_layer === "2" )))
+                 ( current_matched_layer === "2" ) ||
+                 ( current_matched_layer === "U" )))
 		{
 		    console.log("Base layer already added; ignoring");
 		}

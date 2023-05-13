@@ -10,7 +10,27 @@ var current_layer;
  * Test versions do, and also display "Hetzner" maps too.
  * The code supports switching to and from local maps, even if it isn't in 
  * "basemaps"
- * localUrl is defined identically to hetznerUrl.
+ * In "live", localUrl is defined identically to hetznerUrl.
+ * The permalink code requires that each layer has a letter associated with it
+ *
+ * Basemaps
+ * L  Local
+ * H  Hetzner
+ * O  OSM
+ * D  osm.de
+ * 6  OS OpenData StreetView, from 2016
+ * 2  OS OpenMap Local, from 2022
+ * U  Humanitarian from osm.fr
+ *
+ * Overlays
+ * B  Boundaries
+ * G  GPS traces
+ * F  Current flooding
+ * P  Local authority public rights of way
+ * N  No-visibility paths
+ * K  OSMUK cadastral parcels
+ * C  Reserved for contours but not yet implemented.
+ *
  * ------------------------------------------------------------------------------ */
 var localUrl='//map.atownsend.org.uk/hot/{z}/{x}/{y}.png';
 var hetznerUrl='//map.atownsend.org.uk/hot/{z}/{x}/{y}.png';
@@ -29,6 +49,7 @@ var gps2Url='//gps-b.tile.openstreetmap.org/lines/{z}/{x}/{y}.png';
 var floodedUrl='//map.atownsend.org.uk/hot4/{z}/{x}/{y}.png';
 var LA_ProwUrl='https://osm.cycle.travel/rights_of_way/{z}/{x}/{y}.png';
 var novisUrl='//map.atownsend.org.uk/hot5/{z}/{x}/{y}.png';
+var osmukcadUrl='https://tiles.osmuk.org/PropertyBoundaries/{z}/{x}/{y}.png';
 
 var hash;
 
@@ -39,7 +60,8 @@ var hash;
 var osmAttrib='Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>';
 var osAttrib='Map data &copy; <a href="https://www.ordnancesurvey.co.uk/business-government/products/open-map-local">Ordnance Survey</a> under <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">OGL</a>';
 var eaAttrib='current flooding &copy; <a href="https://check-for-flooding.service.gov.uk/find-location">Environment Agency</a> under <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">OGL</a>';
-var laAttrib='PRoW overlay &copy; local authorities under <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">OGL</a> & <a href="https://rowmaps.com">rowmaps.com</a>';
+var laAttrib='PRoW overlay &copy; local authorities under <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">OGL v3.0</a> & <a href="https://rowmaps.com">rowmaps.com</a>';
+var osmukcadAttrib='<a href="https://osmuk.org/cadastral-parcels/">OSMUK</a> cadastral parcels: Contains public sector information licensed under <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">OGL v3.0</a>';
 
 /* ------------------------------------------------------------------------------
  * A note about layer min and max zoom levels:
@@ -64,6 +86,7 @@ var gps2Layer = new L.TileLayer( gps2Url, {minZoom: 0, maxZoom: 20, attribution:
 var floodedLayer = new L.TileLayer( floodedUrl, {minZoom: 0, maxZoom: 25, maxNativeZoom: 24, attribution: eaAttrib });
 var LA_ProwLayer = new L.TileLayer( LA_ProwUrl, {minZoom: 0, maxZoom: 25, maxNativeZoom: 18, attribution: laAttrib });
 var novisLayer = new L.TileLayer( novisUrl, {minZoom: 0, maxZoom: 25, maxNativeZoom: 24, attribution: osmAttrib });
+var osmukcadLayer = new L.TileLayer( osmukcadUrl, {minZoom: 18, maxZoom: 25, maxNativeZoom: 20, attribution: osmukcadAttrib });
 
 function initmap()
 {
@@ -108,7 +131,8 @@ function initmap()
         "GPS": gps2Layer,
         "Current flooding": floodedLayer,
         "LA PRoW": LA_ProwLayer,
-        "No vis paths": novisLayer
+        "No vis paths": novisLayer,
+        "OSMUK cadastral": osmukcadLayer
     };
 
 /* ------------------------------------------------------------------------------
@@ -179,6 +203,7 @@ function initmap()
 	map.removeLayer(gps2Layer);
 	map.removeLayer(LA_ProwLayer);
 	map.removeLayer(novisLayer);
+	map.removeLayer(osmukcadLayer);
         console.log('after overlay deletion');
 
 /* ------------------------------------------------------------------------------
@@ -299,6 +324,11 @@ function process_newmeta( newmeta )
     {
 	map.addLayer(novisLayer);
     }
+
+    if ( newmeta == "K" )
+    {
+	map.addLayer(osmukcadLayer);
+    }
 }
 
 
@@ -402,6 +432,9 @@ function match_layers( passed_layer_url )
 
     if ( passed_layer_url === novisUrl )
 	current_matched_layer = "N";
+
+    if ( passed_layer_url === osmukcadUrl )
+	current_matched_layer = "K";
 
     console.log(current_matched_layer);
     return current_matched_layer;

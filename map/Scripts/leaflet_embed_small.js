@@ -19,7 +19,7 @@ var current_layer;
  * O  OSM
  * D  osm.de
  * 6  OS OpenData StreetView, from 2016
- * 2  OS OpenMap Local, from 2022
+ * 2  OS OpenMap Local, from April 2023
  * U  Humanitarian from osm.fr
  *
  * Overlays
@@ -37,7 +37,7 @@ var hetznerUrl='//map.atownsend.org.uk/hot/{z}/{x}/{y}.png';
 var osmUrl='//tile.openstreetmap.org/{z}/{x}/{y}.png';
 var deUrl='//a.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png';
 var os201604Url='//{s}.os.openstreetmap.org/layer/gb_os_sv_2016_04/{z}/{x}/{y}.png';
-var oslocalUrl='//{s}.os.openstreetmap.org/layer/gb_os_om_local_2022_10/{z}/{x}/{y}.png';
+var oslocalUrl='//{s}.os.openstreetmap.org/layer/gb_os_om_local_2023_04/{z}/{x}/{y}.png';
 var humUrl='http://77.95.65.40/hot/{z}/{x}/{y}.png';
 
 /* ------------------------------------------------------------------------------

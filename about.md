@@ -11,7 +11,7 @@ Other map layers contain data from other sources - for example the "Flooding" la
 * OSM - OpenStreetMap's "[Standard](https://github.com/gravitystorm/openstreetmap-carto)" map tiles.
 * DE - Openstreetmap.de's "[deutscher Stil](https://www.openstreetmap.de/germanstyle.html)".
 * OS 201604 - Ordnance Survey's OS OpenData StreetView, from April 2016.
-* OS OM Local - Ordnance Survey's OS OpenMap Local, from October 2022.
+* OS OM Local - Ordnance Survey's OS OpenMap Local, from April 2023.
 * Humanitarian - OSM France's humanitarian tiles.
 * Boundaries - European boundaries, designed to be used as an overlay for the "Default" layer.
 * GPS - GPS traces that have been uploaded to OpenStreetMap.

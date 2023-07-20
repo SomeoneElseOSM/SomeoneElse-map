@@ -54,8 +54,6 @@ The script that downloads data and create the maps is [here](https://github.com/
     file_page1=http://download.geofabrik.de/south-america/${file_prefix1}.html
     file_url1=http://download.geofabrik.de/south-america/${file_prefix1}-latest.osm.pbf
 
-See [this diary entry](https://www.openstreetmap.org/user/SomeoneElse/diary/400106) for more information.  They are created from fresh OpenStreetMap data roughly once a week.  Files created after about 03:00 on any day are based on OSM data from around 21:21 the previous evening; files created before that around 21:21 the day before that.
-
 ## Simpler maps
 
 In addition to the detailed maps above, some simpler ones, which support the same sort of foot, bicycle and car routing but without the same detail on the display, are available <span style="font-size:larger;">[here](../mkgmap_maps/ajt2/)</span>.

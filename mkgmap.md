@@ -1,6 +1,6 @@
 # Maps for Garmin devices
 
-Also hosted on this site are some [mkgmap-created maps of Great Britain](../mkgmap_maps/ajt03/) for use with Garmin devices.  There are lots of other ones [elsewhere](https://wiki.openstreetmap.org/wiki/OSM_Map_On_Garmin/Download), but these maps try and do something different.  Like the web maps on these pages, they try and show _as much detail as possible_ in the underlying OpenStreetMap data.
+Also hosted on this site are some [mkgmap-created maps of Great Britain](../mkgmap_maps/ajt03/great-britain/) for use with Garmin devices.  There are lots of other ones [elsewhere](https://wiki.openstreetmap.org/wiki/OSM_Map_On_Garmin/Download), but these maps try and do something different.  Like the web maps on these pages, they try and show _as much detail as possible_ in the underlying OpenStreetMap data.
 
 <img align="left" src="https://map.atownsend.org.uk/tmp/IMG_20230719_235909_HDR.jpg" width="300" height="400" />
 

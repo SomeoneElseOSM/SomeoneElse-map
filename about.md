@@ -54,7 +54,7 @@ You can update the data that this map uses by going to [https://www.openstreetma
 
 ## Can I change what the map looks like?
 
-You can, but only by creating your version of the map using your own map tiles.  The [changelog](https://map.atownsend.org.uk/maps/map/changelog.html) contains some links at the top to the various parts of the map style in github - create an issue there if you've got further questions.
+You can, but only by creating your version of the map using your own map tiles.  The [changelog](https://map.atownsend.org.uk/maps/map/changelog.html) contains some links at the top to the various parts of the map style in github - you can create an issue there if you've got further questions, or message [SomeoneElse](https://www.openstreetmap.org/user/SomeoneElse) via OpenStreetMap.
 
 ## If I use these map tiles, what will people know about me?
 

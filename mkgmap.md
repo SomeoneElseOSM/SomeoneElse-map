@@ -1,6 +1,6 @@
 # Maps for Garmin devices
 
-Also hosted on this site are some [mkgmap-created maps of Great Britain](../mkgmap_maps/ajt03/great-britain/) for use with Garmin devices.  There are lots of other ones [elsewhere](https://wiki.openstreetmap.org/wiki/OSM_Map_On_Garmin/Download), but these maps try and do something different.  Like the web maps on these pages, they try and show _as much detail as possible_ in the underlying OpenStreetMap data.
+Also hosted on this site are some [mkgmap-created maps of Great Britain](../mkgmap_maps/ajt03/great-britain/) and elsewhere for use with Garmin devices.  There are lots of other ones [elsewhere](https://wiki.openstreetmap.org/wiki/OSM_Map_On_Garmin/Download), but these maps try and do something different.  Like the web maps on these pages, they try and show _as much detail as possible_ in the underlying OpenStreetMap data.
 
 <img align="left" src="https://map.atownsend.org.uk/tmp/IMG_20230719_235909_HDR.jpg" width="300" height="400" />
 
@@ -40,7 +40,7 @@ The maps are of course routable for walking, cycling and driving.
 
 ## Technical details
 
-The maps are updated once a week using OpenStreetMap data for [Great Britain](http://download.geofabrik.de/europe/great-britain.html), downloaded from [Geofabrik](https://www.geofabrik.de/).  Maps are created early in the morning based on OpenStreetMap data up to around [20:00](http://download.geofabrik.de/europe/great-britain.html) the previous night.
+The maps are updated once a week using OpenStreetMap data for [Great Britain](http://download.geofabrik.de/europe/great-britain.html), downloaded from [Geofabrik](https://www.geofabrik.de/).  Maps are created early in the morning based on OpenStreetMap data up to around [20:00](http://download.geofabrik.de/europe/great-britain.html) the previous night.  Maps of [other areas](https://map.atownsend.org.uk/maps/mkgmap_maps/ajt03/) are also occasionally built.
 
 The feature processing is actually very similar to the [web maps](map.html) on this site, using lua [tag transforms](https://github.com/SomeoneElseOSM/mkgmap_style_ajt/blob/master/transform_03.lua) based on the [ones](https://github.com/SomeoneElseOSM/SomeoneElse-style/blob/master/style.lua) for the web maps.  
 

@@ -28,7 +28,7 @@ These maps have been created so that almost everything is searchable, and detail
 
 Here we can see that the places where it is a primary cuisine are on the "Food and Drink / Seafood" menu, which is the best fit of the (a bit too American for European tastes) available Garmin "Food and Drink" menus.
 
-More details about all this is in the [map legend](legend_mkgmap.html).  To see details of recent enhancements, see [here](changelog_mkgmap.html) for a changelog.
+More details about all this is in the [map legend](legend_mkgmap.html).  To see details of recent enhancements, see [here](changelog_mkgmap.html) for a changelog in github.  If you have any other questions you can create an issue there, or message [SomeoneElse](https://www.openstreetmap.org/message/new/SomeoneElse) via OpenStreetMap.
 
 ### Quality Control information
 

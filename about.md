@@ -48,13 +48,17 @@ This data that this map uses is all added by contributors to the [OpenStreetMap]
 
 Apart from the places shown at very low zoom levels, the data that this map uses is updated from OpenStreetMap data every few minutes.  Depending on what you're looking at, changes will either appear very nearly immediately (when you're zoomed in) or in a few days (zoomed out).  Nothing should be more than about 4 days old, though you may see cached tiles (either in your browser or from the server, while a new tile is being created).
 
+The map is completely reloaded every time there are minor style changes; typically this is once or twice a month.
+
 ## Something's wrong, how do I fix it?
 
 You can update the data that this map uses by going to [https://www.openstreetmap.org/](https://www.openstreetmap.org/) and following the advice on [this page](https://www.openstreetmap.org/fixthemap).
 
+There have been occasional examples of vandalism at [OpenStreetMap](https://www.openstreetmap.org/).  If you think you can see an example of that, please message [me](https://www.openstreetmap.org/message/new/SomeoneElse) via OpenStreetMap.  You also might find [this](https://community.openstreetmap.org/t/have-you-spotted-vandalism-on-openstreetmap-org/114684) article useful - but note that you'll need to go to the main [OpenStreetMap](https://www.openstreetmap.org/) site to follow that.
+
 ## Can I change what the map looks like?
 
-You can, but only by creating your version of the map using your own map tiles.  The [changelog](https://map.atownsend.org.uk/maps/map/changelog.html) contains some links at the top to the various parts of the map style in github - you can create an issue there if you've got further questions, or message [SomeoneElse](https://www.openstreetmap.org/message/new/SomeoneElse) via OpenStreetMap.
+You can, but only by creating your version of the map using your own map tiles.  The [changelog](https://map.atownsend.org.uk/maps/map/changelog.html) contains some links at the top to the various parts of the map style in github - you can create an issue there if you've got further questions, or message [me](https://www.openstreetmap.org/message/new/SomeoneElse) via OpenStreetMap.
 
 ## If I use these map tiles, what will people know about me?
 

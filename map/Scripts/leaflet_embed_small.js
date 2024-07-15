@@ -1,5 +1,6 @@
 var map;
 var layersControl;
+var layersControl_shown = false;
 var zoomControl;
 var ajaxRequest;
 var current_zoom = 9;
@@ -462,26 +463,26 @@ function zoom_in()
 }
 
 
-function layers_on()
-{
-/* ------------------------------------------------------------------------------
- * Another valid method would be "map.addControl( layersControl );"
- * ------------------------------------------------------------------------------ */
-    layersControl.addTo( map );
-    zoomControl.addTo( map );
-}
-
 /* ------------------------------------------------------------------------------
  * These functions are bound to buttons above the map.  They're included because
  * on a small phone screen a layer of buttons at the top is less intrusive than
- * controls on the map.
+ * controls over the top of the map itself
  * ------------------------------------------------------------------------------ */
-function layers_off()
+function toggle_controls()
 {
-    layersControl.removeFrom( map );
-    zoomControl.removeFrom( map );
+    if ( layersControl_shown )
+    {
+	layersControl.removeFrom( map );
+	zoomControl.removeFrom( map );
+	layersControl_shown = false;
+    }
+    else
+    {
+	layersControl.addTo( map );
+	zoomControl.addTo( map );
+	layersControl_shown = true;
+    }
 }
-
 
 /* ------------------------------------------------------------------------------
  * Another button above the map - this one centres the map on the current 

@@ -2,6 +2,7 @@ var map;
 var layersControl;
 var layersControl_shown = false;
 var zoomControl;
+var scaleControl;
 var ajaxRequest;
 var current_zoom = 9;
 var current_layer;
@@ -474,12 +475,14 @@ function toggle_controls()
     {
 	layersControl.removeFrom( map );
 	zoomControl.removeFrom( map );
+	scaleControl.removeFrom( map );
 	layersControl_shown = false;
     }
     else
     {
 	layersControl.addTo( map );
 	zoomControl.addTo( map );
+	scaleControl = L.control.scale().addTo( map );
 	layersControl_shown = true;
     }
 }

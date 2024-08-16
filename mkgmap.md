@@ -1,6 +1,6 @@
 # Maps for Garmin devices
 
-Also hosted on this site are some [mkgmap-created maps of Great Britain](../mkgmap_maps/ajt03/great-britain/) and [Ireland](../mkgmap_maps/ajt03/great-britain/) for use with Garmin devices.  
+Also hosted on this site are some [mkgmap-created maps of Great Britain](../mkgmap_maps/ajt03/great-britain/) and [Ireland](../mkgmap_maps/ajt03/ireland-and-northern-ireland/) for use with Garmin devices.  
 
 ### How to install them?
 

@@ -1,6 +1,30 @@
 # Maps for Garmin devices
 
-Also hosted on this site are some [mkgmap-created maps of Great Britain](../mkgmap_maps/ajt03/great-britain/) and elsewhere for use with Garmin devices.  There are lots of other ones [elsewhere](https://wiki.openstreetmap.org/wiki/OSM_Map_On_Garmin/Download), but these maps try and do something different.  Like the web maps on these pages, they try and show _as much detail as possible_ in the underlying OpenStreetMap data.
+Also hosted on this site are some [mkgmap-created maps of Great Britain](../mkgmap_maps/ajt03/great-britain/) and [Ireland](../mkgmap_maps/ajt03/great-britain/) for use with Garmin devices.  
+
+### How to install them?
+
+First, you'll need a Garmin device of some sort, preferably one that takes an SD card.  You can install on devices without an SD card providing there's enough space - but don't "delete files from it to make space" - it might not work afterwards!  These maps won't work with non-Garmin devices.  The Garmin devices that are supported include various eTrex GPSMap, Edge and Nuvi models (pretty much everything but the bargain basement ones), and even some Garmin watches.
+
+You'll also need some sort of computer with a spare USB port that you can plug the Garmin device into using the cable that came with it.  Depending on the computer (PC, Mac, Linux...) I'll appear as some sort of connected disk.
+
+You might struggle if you need maps featuring a non-Latin alphabet (Arabic, Georgian, etc.), but that's not an issue with the maps currently hosted here.
+
+Next, download the files you need.  The [link above for Great Britain](../mkgmap_maps/ajt03/great-britain/) points to 3 files (two small and one large one).  Create an empty directory on your PC and download the 3 files into there.  Don't try and "open" these files on your PC; it won't understand them.  
+
+If you have a new SD card to add to an empty slot in your Garmin device, do that now.  Next, plug your Garmin device into a USB port on your PC.  If the new card needs formatting, your PC will prompt you to do that now.  You should now see one or two new "disk drives" appear.  One (probably called "Garmin") is the device itself.  The other, if present, is the SD card.
+
+If you've just inserted a blank SD card you'll want to create a "Garmin" directory there and copy your new maps into it.  The filenames and internal reference numbers have been chosen so that they hopefully won't clash with other maps.
+
+If you don't have an SD card, or you have one that already has add-on maps on it that you don't want to overwrite, you'll want to copy onto the device itself.  It'll already have a "Garmin" directory on it; you can copy the 3 downloaded files into there, but do briefly check that there's enough space to do that.
+
+When that's complete (the copy to the device might take 5 or so minutes), you can safely remove the "drive" that you copied the files to and unplug the device.
+
+Turn the device on.  Depending on the type of Garmin device this'll be something like: select "menu", "setup map" then "select map".  scroll down to the "OSM Street Map" and select "enable" if it isn't already enabled.
+
+### Why choose these maps?
+
+It's worth mentioning that Garmin devices bought in the last few years very likely already have OpenStreetMap-based maps on them.  There are a couple of obvious reasons to upgrade though - one is just to have up to date maps (as an example, a 2023-bought Garmin 65s had OSM data from 2019 on it), but another is to have much more detail.  There are lots of downloadable OSM-based Garmin maps [elsewhere](https://wiki.openstreetmap.org/wiki/OSM_Map_On_Garmin/Download), but these maps try and do something different.  Like the web maps on these pages, they try and show _as much detail as possible_ from the underlying OpenStreetMap data.
 
 <img align="left" src="https://map.atownsend.org.uk/tmp/IMG_20230719_235909_HDR.jpg" width="300" height="400" />
 

@@ -20,6 +20,8 @@ Other map layers contain data from other sources - for example the "Flooding" la
 * No vis paths - paths that aren't designated as England/Wales public rights of way that aren't particularly visible or are particularly demanding.
 * OSMUK cadastral parcels - Zoom 18 and above only.  See [here](https://osmuk.org/cadastral-parcels/).
 
+There's also an experimental vector-tile based map [here](https://map.atownsend.org.uk/vector/index.html#13.33/53.73709/-2.01785).  Unlike the raster maps it's not updated as people update OpenStreetMap.
+
 ## Why is this map better than other maps made using OSM data?
 
 It handles a much larger proportion of the tags used in OSM [than other maps](https://taginfo.openstreetmap.org/projects).  It groups similar objects together, so for example "shop=vehicle" will appear with the same icon as "shop=car".  It does this via osm2pgsql and lua to customise the database for rendering, making queries easy to write.
@@ -36,9 +38,11 @@ Yes, you're welcome to link to it.  As you zoom in the URL changes, so the conte
 
 ## Can I use these map tiles?
 
-The map is actually composed of a series of map tiles, such as [this one](https://map.atownsend.org.uk/hot/13/4070/2627.png).  You can add these tiles as a layer to another map, provided that you link back to the map style somehow (e.g. by linking to this page) and credit OpenStreetMap on the map layer as described [here](https://www.openstreetmap.org/copyright).
+The raster map is actually composed of a series of map tiles, such as [this one](https://map.atownsend.org.uk/hot/13/4070/2627.png).  You can add these tiles as a layer to another map, provided that you link back to the map style somehow (e.g. by linking to this page) and credit OpenStreetMap on the map layer as described [here](https://www.openstreetmap.org/copyright).
 
-What you are not allowed to do is any sort of bulk downloading (i.e. downloading more than you need to display on screen at once).
+What you are not allowed to do is any sort of bulk downloading (i.e. downloading more than you need to display on screen at once).  What any normal person would view as normal usage of a web map is likely to be absolutely fine.
+
+Similar "normal usage is likely to be fine" rules apply to the vector map tiles too.  However, the way that these are served is slightly different; if that becomes problematic I'll have to review how and if it can continue to be provided.
 
 ## Is this map accurate?
 
@@ -46,9 +50,9 @@ This data that this map uses is all added by contributors to the [OpenStreetMap]
 
 ## Is this map up to date?
 
-Apart from the places shown at very low zoom levels, the data that this map uses is updated from OpenStreetMap data every few minutes.  Depending on what you're looking at, changes will either appear very nearly immediately (when you're zoomed in) or in a few days (zoomed out).  Nothing should be more than about 4 days old, though you may see cached tiles (either in your browser or from the server, while a new tile is being created).
+Apart from the places shown at very low zoom levels, the data that the raster map uses is updated from OpenStreetMap data every few minutes.  Depending on what you're looking at, changes will either appear very nearly immediately (when you're zoomed in) or in a few days (zoomed out).  Nothing should be more than about 4 days old, though you may see cached tiles (either in your browser or from the server, while a new tile is being created).
 
-The map is completely reloaded every time there are minor style changes; typically this is once or twice a month.
+The raster map is completely reloaded every time there are minor style changes; typically this is once or twice a month.
 
 ## Something's wrong, how do I fix it?
 
@@ -56,10 +60,12 @@ You can update the data that this map uses by going to [https://www.openstreetma
 
 There have been occasional examples of vandalism at [OpenStreetMap](https://www.openstreetmap.org/).  If you think you can see an example of that, please message [me](https://www.openstreetmap.org/message/new/SomeoneElse) via OpenStreetMap.  You also might find [this](https://community.openstreetmap.org/t/have-you-spotted-vandalism-on-openstreetmap-org/114684) article useful - but note that you'll need to go to the main [OpenStreetMap](https://www.openstreetmap.org/) site to follow that.
 
-## Can I change what the map looks like?
+## Can I change what the raster map looks like?
 
 You can, but only by creating your version of the map using your own map tiles.  The [changelog](https://map.atownsend.org.uk/maps/map/changelog.html) contains some links at the top to the various parts of the map style in github - you can create an issue there if you've got further questions, or message [me](https://www.openstreetmap.org/message/new/SomeoneElse) via OpenStreetMap.
 
-## If I use these map tiles, what will people know about me?
+The vector map is similar, except that the [schema](https://github.com/SomeoneElseOSM/SomeoneElse-vector-extract/blob/main/resources/README_sve01.md) is defined separately to the [display style](https://github.com/SomeoneElseOSM/SomeoneElse-vector-web-display/blob/main/resources/README_svwd01.md).  If you just need to change what the vector map looks like, you essentially need to edit [one .json file](https://github.com/SomeoneElseOSM/SomeoneElse-vector-web-display/blob/main/resources/svwd01_style.json).
 
-[I](https://www.openstreetmap.org/user/SomeoneElse) am the only person that I've set up to have access to this server (tiles loaded from other servers are accessed by other people, of course).  If you request tiles then the normal Linux logs will record the fact (Apache's "access" log stores which IP address asked for a tile when, and the "syslog" stores details about new tiles being rendered).  The logs store data for about a week and then wrap around.  I can't comment on who might be watching traffic between you and the server (in Germany).  If you're particularly worried about people NOT knowing that you're requesting certain map tiles I recommend that you set up your own server and serve tiles from there instead.
+## If I use these maps, what will people know about me?
+
+[I](https://www.openstreetmap.org/user/SomeoneElse) am the only person that I've set up to have access to this server (tiles loaded from other servers are accessed by other people, of course).  If you request tiles or any other files then the normal Linux logs will record the fact (Apache's "access" log stores which IP address asked for a tile when, and the "syslog" stores details about new raster tiles being rendered).  The logs store data for about a week and then wrap around.  I can't comment on who might be watching traffic between you and the server (in Germany).  If you're particularly worried about people NOT knowing that you're requesting certain map tiles I recommend that you set up your own server and serve everything from there instead.

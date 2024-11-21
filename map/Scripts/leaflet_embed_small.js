@@ -125,8 +125,7 @@ function initmap()
 	"OSM": osmLayer,
 	"DE": deLayer,
 	"OS 201604": os201604Layer,
-	"OS OM Local": oslocalLayer,
-	"Humanitarian": humLayer
+	"OS OM Local": oslocalLayer
     };
 
     var overlayMaps = {

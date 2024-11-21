@@ -78,4 +78,4 @@ The script that downloads data and create the maps is [here](https://github.com/
 
 ## Simpler maps
 
-In addition to the detailed maps above, some simpler ones, which support the same sort of foot, bicycle and car routing but without the same detail on the display, are available <span style="font-size:larger;">[here](../mkgmap_maps/ajt2/)</span>.
+In addition to the detailed maps above, some simpler ones, which support the same sort of foot, bicycle and car routing but without the same detail on the display, are available <span style="font-size:larger;">[here](../mkgmap_maps/ajt02/)</span>.

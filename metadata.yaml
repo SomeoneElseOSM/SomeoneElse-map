@@ -2,7 +2,14 @@
 header-includes: |
   <style>
     body {
+      margin-top: 15px;
+      margin-bottom: 15px;
+      margin-left: 105px;
+      margin-right: 105px;
       font-family: "Arial";
+    }
+    img {
+      margin: 20px;
     }
   </style>
 ---

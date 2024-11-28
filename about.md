@@ -20,6 +20,8 @@ Other map layers contain data from other sources - for example the "Flooding" la
 * No vis paths - paths that aren't designated as England/Wales public rights of way that aren't particularly visible or are particularly demanding.
 * OSMUK cadastral parcels - Zoom 18 and above only.  See [this page](https://osmuk.org/cadastral-parcels/) for details.
 
+To get at the other map layers, tap on the "controls" button and then use the layer selector at the top right.
+
 There's also an experimental [vector-tile based map](https://map.atownsend.org.uk/vector/index.html#13.33/53.73709/-2.01785).  Unlike the raster maps it's not updated as people update OpenStreetMap.
 
 ## Why is this map better than other maps made using OSM data?

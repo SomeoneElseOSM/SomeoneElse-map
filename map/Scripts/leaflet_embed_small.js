@@ -534,4 +534,9 @@ function show_about()
     window.open ( 'about.html','_self',false )
 }
 
+function show_vector()
+{
+    window.open ( '../../vector','_self',false )
+}
+
 

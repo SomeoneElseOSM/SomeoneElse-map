@@ -534,9 +534,18 @@ function show_about()
     window.open ( 'about.html','_self',false )
 }
 
+/* -------------------------------------------------------------------------
+ * Obtain the currect vector zoom level and location.
+ * Add 1 to the vector zoom level to get the equivalent raster zoom level
+ * Browse to the current location on the vector map.
+ * Raster zooms are whole numbers, so any fractional part of the vector 
+ * zoom level is trunctated.
+ * ------------------------------------------------------------------------- */
 function show_vector()
 {
-    window.open ( '../../vector','_self',false )
+    let zoom = map.getZoom() - 1;
+    let {lng, lat} = map.getCenter();
+    window.open ( '../../vector/index.html'+'#'+zoom+'/'+lat+'/'+lng,'_self',false )
 }
 
 

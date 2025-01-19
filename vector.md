@@ -6,7 +6,7 @@ The vector tiles are created using [Tilemaker](https://tilemaker.org/).  The map
 
 ## Why is this map better than other maps made using OSM data?
 
-It handles a much larger proportion of the tags used in OSM [than other maps](https://taginfo.openstreetmap.org/projects).  It groups similar objects together, so for example `shop=vehicle` will appear with the same icon as `shop=car`.  It does this via osm2pgsql and lua to customise the database for rendering, making queries easy to write.
+It handles a much larger proportion of the tags used in OSM [than other maps](https://taginfo.openstreetmap.org/projects).  It groups similar objects together, so for example `shop=vehicle` will appear with the same icon as `shop=car`.  It does this via tilemaker and lua to customise the schema for rendering, making queries easy to write.
 
 It uses a wider variety of icons than other maps, especially icons with a small modifier indicating a certain feature varies in some small way from the norm, such as a grocery shop that sells zero-waste products, or a pub with outdoor seating.
 

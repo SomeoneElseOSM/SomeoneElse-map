@@ -548,4 +548,11 @@ function show_vector()
     window.open ( '../../vector/index.html'+'#'+zoom+'/'+lat+'/'+lng,'_self',false )
 }
 
+function show_osm()
+{
+    let zoom = map.getZoom();
+    let {lng, lat} = map.getCenter();
+    window.open ( 'https://osm.org/#map='+zoom+'/'+lat+'/'+lng,'_self',false )
+}
+
 

@@ -552,7 +552,7 @@ function show_osm()
 {
     let zoom = map.getZoom();
     let {lng, lat} = map.getCenter();
-    window.open ( 'https://osm.org/#map='+zoom+'/'+lat+'/'+lng,'_self',false )
+    window.open ( 'https://osm.org/#map='+zoom+'/'+lat+'/'+lng+'_self',false )
 }
 
 
@@ -560,6 +560,14 @@ function show_whatpub()
 {
     let {lng, lat} = map.getCenter();
     window.open ( 'https://whatpub.com/search?q=nearby&t=d&lat='+lat+'&lng='+lng+'&r=10&p=1&features=PubClub&home=1', '_blank' )
+}
+
+
+function show_bustimes()
+{
+    let zoom = map.getZoom() - 1;
+    let {lng, lat} = map.getCenter();
+    window.open ( 'https://bustimes.org/map#'+zoom+'/'+lat+'/'+lng,false )
 }
 
 

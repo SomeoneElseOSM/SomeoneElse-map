@@ -566,6 +566,12 @@ function show_whatpub()
 function show_bustimes()
 {
     let zoom = map.getZoom() - 1;
+
+    if ( zoom > 18 )
+    {
+	zoom = 18;
+    }
+
     let {lng, lat} = map.getCenter();
     window.open ( 'https://bustimes.org/map#'+zoom+'/'+lat+'/'+lng,false )
 }

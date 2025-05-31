@@ -1,6 +1,8 @@
 # What is this map?
 
-The default layer on this map is created from [OpenStreetMap](https://www.openstreetmap.org/about) data.  It's designed to show information that's specifically useful to rural pedestrians - things like public footpaths and bridleways, and which roads you can safely walk along because there's a roadside pavement or verge.  There's a [map legend](https://map.atownsend.org.uk/maps/map/map.html#zoom=14&lat=-24.99839&lon=135.04956), but it's quite large so you'll need to scroll around to see it all, and also zoom in to see things that are only visible at higher zoom levels.  Recent changes that have been made to what is shown on the map can be seen on a [changelog](https://map.atownsend.org.uk/maps/map/changelog.html).
+This map is one of several here - see the links to "mkgmap" and "vector" above, and also [here](https://map.atownsend.org.uk/vector/index_osmf_shortbread.html) for a worldwide map based on OSMF's vector map tiles.
+
+This map is made up of raster tiles.  The default layer is created from [OpenStreetMap](https://www.openstreetmap.org/about) data.  It's designed to show information that's specifically useful to rural pedestrians - things like public footpaths and bridleways, and which roads you can safely walk along because there's a roadside pavement or verge.  There's a [map legend](https://map.atownsend.org.uk/maps/map/map.html#zoom=14&lat=-24.99839&lon=135.04956), but it's quite large so you'll need to scroll around to see it all, and also zoom in to see things that are only visible at higher zoom levels.  Recent changes that have been made to what is shown on the map can be seen on a [changelog](https://map.atownsend.org.uk/maps/map/changelog.html).
 
 It uses a Javascript library called [Leaflet](http://leafletjs.com/), which is really well documented and simple to use, and makes it easy to create map web sites such as this one.
 

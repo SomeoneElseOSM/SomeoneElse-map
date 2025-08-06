@@ -559,7 +559,7 @@ function show_osm()
 function show_whatpub()
 {
     let {lng, lat} = map.getCenter();
-    window.open ( 'https://whatpub.com/search?q=nearby&t=d&lat='+lat+'&lng='+lng+'&r=10&p=1&features=PubClub&home=1', '_blank' )
+    window.open ( 'https://camra.org.uk/pubs/location/'+lat+'/'+lng+'?sort=nearest&hide_closed=false&venue_types[0]=P', '_blank' )
 }
 
 

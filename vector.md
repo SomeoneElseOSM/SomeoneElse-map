@@ -34,6 +34,10 @@ There is a [readme](https://github.com/SomeoneElseOSM/SomeoneElse-vector-web-dis
 
 In order to help understanding how and why things are displayed, the [default web page](https://github.com/SomeoneElseOSM/SomeoneElse-vector-web-display/blob/main/resources/svwd01_index.html) includes MapLibre GL debug, and there is also a [debug style](https://github.com/SomeoneElseOSM/SomeoneElse-vector-web-display/blob/main/resources/svwd04_style.json) that just shows the contents of the vector tiles.
 
+## What goes in the names?
+
+The names used on the [main map](https://map.atownsend.org.uk/vector/#4.33/53.95/-5.33) are based on the `name` in Ireland, `name:cy` in Welsh-speaking parts of Wales, `name:gd` in Scots Gaelic-speaking parts of Scotland, and English elsewhere.  Maps are also available that where possible use [Welsh](https://map.atownsend.org.uk/vector/index_svwd01cy.html#4.33/53.95/-5.33), [English](https://map.atownsend.org.uk/vector/index_svwd01en.html#4.33/53.95/-5.33), [Irish](https://map.atownsend.org.uk/vector/index_svwd01ga.html#4.33/53.95/-5.33) and [Scots Gaelic](https://map.atownsend.org.uk/vector/index_svwd01gd.html#4.33/53.95/-5.33).
+
 ## Can I use this map?
 
 Yes, you're welcome to link to it.  As you zoom in the URL changes, so the contents of the URL bar should always link to what you are seeing.

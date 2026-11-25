@@ -1,5 +1,19 @@
 #!/bin/sh
 
+# Derived with few changes from
+# https://github.com/dc2447/munin-apache-error-rate/blob/master/apache_error_rate
+# (no licence declared there)
+# via
+# https://serverfault.com/questions/279100/best-plugin-for-tracking-apache-response-codes-with-munin
+
+# Note that:
+# 1) It needs to run as adm so it can read apache logs.
+# The config I've named munin_conf_apache_error_rate in /etc/munin/plugin-conf.d/ does that.
+# 2) Apache log format is configurable.
+# One option is: awk '{print $9 }' | grep -c "${code}"
+# But elsewhere I use:  awk -F\" '{print $3}' | sed "s/^ *//"  | sed "s/ .*//" \ | grep -c "${code}"
+# 3) If fail2ban is configured this plugin won't see those failed accesses because they don't get this far.
+
 # If run with the "config"-parameter, give out information on how the
 # graphs should look.
 

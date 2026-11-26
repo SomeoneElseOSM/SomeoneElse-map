@@ -43,7 +43,7 @@ fi
         for code in $mystatuscodes
                 do
 		echo -n "error_${code}.value "
-		tail -${myloglines} ${myaccesslog} | awk '{print $9 }' | grep -c "${code}"
+		tail -${myloglines} ${myaccesslog} | grep -iv munin | awk '{print $9 }' | grep -c "${code}"
         done
 
 exit 0

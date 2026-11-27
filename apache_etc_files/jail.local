@@ -1,0 +1,8 @@
+[apache-ajt]
+enabled = true
+port = https
+filter = apache-ajt
+logpath = /var/log/apache2/access.log
+maxretry = 5
+findtime = 600
+bantime = 300
